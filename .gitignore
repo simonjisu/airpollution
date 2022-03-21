@@ -3,3 +3,5 @@ __pycache__
 data/
 logs/
 dask-worker-space
+*.db-journal
+*.db
