@@ -1,7 +1,0 @@
-__pycache__
-.ipynb_checkpoints
-data/
-logs/
-dask-worker-space
-*.db-journal
-*.db
