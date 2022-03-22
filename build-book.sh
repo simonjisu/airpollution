@@ -1,6 +1,7 @@
 #!/bin/bash
 git checkout gh-pages
-git pull origin main
+git rebase origin main
+git merge origin main
 jupyter-book build book --path-output ./docs
 git add .
 git commit -m 'update book'
