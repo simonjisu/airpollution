@@ -1,6 +1,6 @@
 #!/bin/bash
 git checkout gh-pages
-git fetch upstream # pull origin main
+git pull origin main
 jupyter-book build book --path-output ./docs
 git add .
 git commit -m 'update book'
