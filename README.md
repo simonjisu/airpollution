@@ -2,3 +2,6 @@
 
 ## Example: Air Pollution Prediction
 
+```bash
+chmod +x ./build-book.sh
+```
