@@ -4,6 +4,10 @@
 format: jb-book
 root: intro
 chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+- file: 00_data-acquisition
+- file: 01_data-eda
+- file: 02_data-handling
+- file: 03_modeling
+- file: 04_monitoring
+
+
