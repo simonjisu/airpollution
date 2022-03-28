@@ -1,8 +1,11 @@
 import gdown
 from pathlib import Path
-url = 'https://drive.google.com/uc?id=1ppI6B488QgYSC6pXI2z7TVDdMYPGRhyx'
+
+# database
+link_id = '1UylI7ZvnL4OTvumeBMnIMR7RGd9Rak2S'
+url = f'https://drive.google.com/uc?id={link_id}'
 data_path = Path() / 'data'
 if not data_path.exists():
     data_path.mkdir()
-output = data_path / 'data.zip'
-gdown.download(url, output, quiet=False)
+with (data_path / 'airpollution.db').open('wb') as file:
+    gdown.download(url, file, quiet=False)
