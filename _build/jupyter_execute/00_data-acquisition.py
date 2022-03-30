@@ -6,14 +6,11 @@
 # In[1]:
 
 
-import os
 import sqlite3
 import pandas as pd
 from pathlib import Path
 
-from collections import defaultdict
 from tqdm.notebook import tqdm
-from typing import Any, Union
 
 proj_path = Path().absolute().parent
 data_path = proj_path / 'data' 
@@ -53,7 +50,7 @@ def load_data(path:Path) -> pd.DataFrame:
 
     return df
 
-def filter_seoul(df):
+def filter_seoul(df: pd.DataFrame) -> pd.DataFrame:
     return df.loc[df['지역'].str.contains('서울'), :]
 
 
@@ -83,61 +80,45 @@ for p_year in tqdm(datafiles, total=len(datafiles)):
     parts = []
 
 
-# In[33]:
+# In[17]:
 
 
 # change column name and insert into database
 column_m_dict = {
     '지역': 'district', 
-    '측정소코드': 'measurecode', 
-    '측정소명': 'measurename', 
-    '측정일시': 'date', 
+    '측정소코드': 'measure_code', 
+    '측정소명': 'measure_name', 
+    '측정일시': 'datetime', 
     '주소': 'address',
-    '망': 'measurepoint'
+    '망': 'measure_point'
 }
 
 check_miss_match = {}
 for p in sorted((data_path / 'airquality').glob("*.csv")):
     df = pd.read_csv(p, encoding='utf-8').rename(columns=column_m_dict)
-    c = df.loc[:, ['district', 'measurepoint', 'measurecode', 'measurename', 'address']].drop_duplicates()
+    c = df.loc[:, ['district', 'measure_point', 'measure_code', 'measure_name', 'address']].drop_duplicates()
     check_miss_match[int(p.name.rstrip('\.csv').split('-')[-1])] = c
-    print(f"{p.name}, num-unique data: {len(c)}, measurecode: {len(c['measurecode'].unique())}, district: {len(c['district'].unique())}, address: {len(c['district'].unique())}")
+    print(f"{p.name}: num-unique data: {len(c)}, measure_code: {len(c['measure_code'].unique())}, district: {len(c['district'].unique())}, address: {len(c['district'].unique())}")
     # saved changed columns
     df.to_csv(p, encoding='utf-8', index=False)
 
 
-# In[35]:
+# In[18]:
 
 
 # fix the district name and address by 2021 version of measurecode
-code2dist = dict(check_miss_match[2021].loc[:, ['measurecode', 'district']].values)
-code2add = dict(check_miss_match[2021].loc[:, ['measurecode', 'address']].values)
+code2dist = dict(check_miss_match[2021].loc[:, ['measure_code', 'district']].values)
+code2add = dict(check_miss_match[2021].loc[:, ['measure_code', 'address']].values)
 df = pd.read_csv(data_path / 'airquality' / 'air-seoul-2018.csv', encoding='utf-8').rename(columns=column_m_dict)
-df['district'] = df['measurecode'].map(code2dist)
-df['address'] = df['measurecode'].map(code2add)
-df = df.set_index(['measurecode', 'district', 'measurename', 'address', 'measurepoint']).sort_values(['measurecode', 'date']).reset_index()
+df['district'] = df['measure_code'].map(code2dist)
+df['address'] = df['measure_code'].map(code2add)
+df = df.set_index(['measure_code', 'district', 'measure_name', 'address', 'measure_point']).sort_values(['measure_code', 'datetime']).reset_index()
 
 # save 
-# df.to_csv(data_path / 'airquality' / 'air-seoul-2018.csv', encoding='utf-8', index=False)
+df.to_csv(data_path / 'airquality' / 'air-seoul-2018.csv', encoding='utf-8', index=False)
 
 
-# In[4]:
-
-
-def drop_tables(conn):
-    cur = conn.cursor()
-    conn.execute("DROP TABLE IF EXISTS airquality;")
-    conn.execute("DROP TABLE IF EXISTS airmeasure;")
-    cur.close()
-
-
-# In[24]:
-
-
-drop_tables(conn)
-
-
-# In[25]:
+# In[5]:
 
 
 cur = conn.cursor()
@@ -145,11 +126,11 @@ cur.execute(
     """
     CREATE TABLE IF NOT EXISTS airmeasure (
         sid INTEGER PRIMARY KEY,
-        measurecode INTEGER NOT NULL UNIQUE,
+        measure_code INTEGER NOT NULL UNIQUE,
         district TEXT, 
-        measurename TEXT, 
+        measure_name TEXT, 
         address TEXT, 
-        measurepoint TEXT
+        measure_point TEXT
     );
     """
 )
@@ -157,38 +138,38 @@ cur.execute(
     """
     CREATE TABLE IF NOT EXISTS airquality (
         airid INTEGER PRIMARY KEY,
-        measurecode INTEGER, 
-        date TEXT, 
+        measure_code INTEGER, 
+        datetime TEXT, 
         SO2 REAL, 
         CO REAL, 
         O3 REAL,
         NO2 REAL, 
         PM10 REAL, 
         PM25 REAL, 
-        FOREIGN KEY (measurecode)
-            REFERENCES airmeasure (measurecode)
+        FOREIGN KEY (measure_code)
+            REFERENCES airmeasure (measure_code)
             ON DELETE CASCADE 
             ON UPDATE NO ACTION
     );
     """
 )
 
-airmeasure_columns = ['measurecode', 'district', 'measurename', 'address', 'measurepoint']
-airquality_columns = ['measurecode', 'date', 'SO2', 'CO', 'O3', 'NO2', 'PM10', 'PM25']
+airmeasure_columns = ['measure_code', 'district', 'measure_name', 'address', 'measure_point']
+airquality_columns = ['measure_code', 'datetime', 'SO2', 'CO', 'O3', 'NO2', 'PM10', 'PM25']
 df_airmeasure = None
 
 sql_airmeasure = """
-INSERT INTO airmeasure (sid, measurecode, district, measurename, address, measurepoint)
+INSERT INTO airmeasure (sid, measure_code, district, measure_name, address, measure_point)
 VALUES (?, ?, ?, ?, ?, ?);
 """
 sql_airquality = """
-INSERT INTO airquality (airid, measurecode, date, SO2, CO, O3, NO2, PM10, PM25) 
+INSERT INTO airquality (airid, measure_code, datetime, SO2, CO, O3, NO2, PM10, PM25) 
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
 """
 idx = 0
 for p in tqdm(sorted((data_path / 'airquality').glob("*.csv")), total=4):
     df = pd.read_csv(p, encoding='utf-8')
-    df = df.set_index(['measurecode', 'district', 'measurename', 'address', 'measurepoint']).sort_values(['measurecode', 'date']).reset_index()
+    df = df.set_index(['measure_code', 'district', 'measure_name', 'address', 'measure_point']).sort_values(['measure_code', 'datetime']).reset_index()
 
     if df_airmeasure is None:
         df_airmeasure = df.loc[:, airmeasure_columns].drop_duplicates().reset_index(drop=True)
@@ -199,20 +180,22 @@ for p in tqdm(sorted((data_path / 'airquality').glob("*.csv")), total=4):
         df_temp = df.loc[:, airmeasure_columns].drop_duplicates().reset_index(drop=True)
         if (df_temp != df_airmeasure).sum().sum():
             raise ValueError("not equal table")
-    for m in df_airmeasure['measurecode'].values:
-        df_airquality = df.loc[df['measurecode'] == m, airquality_columns]
-        df_airquality['date'] = pd.to_datetime(df_airquality['date']-1, format='%Y%m%d%H').dt.strftime('%Y-%m-%d %H:%M:%S')
+    for m in df_airmeasure['measure_code'].values:
+        df_airquality = df.loc[df['measure_code'] == m, airquality_columns]
+        df_airquality['datetime'] = pd.to_datetime(df_airquality['datetime']-1, format='%Y%m%d%H').dt.strftime('%Y-%m-%d %H:%M:%S')
         
         # insert row
         for i, x in df_airquality.iterrows():
             idx += 1
             cur.execute(sql_airquality, [idx] + [x[c] for c in airquality_columns])
+
 cur.close()
+conn.commit()
 
 
 # # Holiday Data
 
-# In[8]:
+# In[6]:
 
 
 from argparse import ArgumentParser
@@ -228,7 +211,7 @@ parser.add_argument("-c", "--country", default="south-korea")
 args = parser.parse_known_args()[0]
 
 
-# In[9]:
+# In[7]:
 
 
 def get_holiday_data(html):
@@ -253,7 +236,7 @@ def craw_data(year, country="south-korea"):
     return html
 
 
-# In[10]:
+# In[8]:
 
 
 all_data = []
@@ -264,12 +247,35 @@ for y in range(args.start, args.end+1):
     
 df_holiday = pd.concat(all_data)
 
-
-# In[12]:
-
-
 df_holiday = df_holiday.reset_index(drop=True)
 df_holiday.to_csv(data_path / f"holiday_{args.start}-{args.end}.tsv", sep="\t", index=False)
+
+
+# In[9]:
+
+
+cur = conn.cursor()
+cur.execute(
+"""
+CREATE TABLE IF NOT EXISTS holiday (
+    hid INTEGER PRIMARY KEY,
+    date TEXT,
+    day TEXT, 
+    name TEXT, 
+    type TEXT
+);
+"""
+)
+sql_holiday = """
+INSERT INTO holiday (hid, date, day, name, type)
+VALUES (?, ?, ?, ?, ?);
+"""
+holiday_columns = ['date', 'day', 'name', 'type']
+for i, x in tqdm(df_holiday.iterrows(), total=len(df_holiday)):
+    cur.execute(sql_holiday, [i+1] + [x[c] for c in holiday_columns])
+
+cur.close()
+conn.commit()
 
 
 # # Weather Data
@@ -300,56 +306,44 @@ df_holiday.to_csv(data_path / f"holiday_{args.start}-{args.end}.tsv", sep="\t", 
 # 
 # https://ko.wikipedia.org/wiki/%EC%8B%9C%EC%A0%95
 
-# In[15]:
+# In[19]:
 
 
 columns = {
-    '지점': 'measurecode', 
-    '지점명': 'measurename', 
-    '일시': 'date', 
-    '기온(°C)': 'temperature', 
-    '강수량(mm)': 'precipitation', 
-    '풍속(m/s)': 'windspeed', 
-    '풍향(16방위)': 'winddirection', 
-    '습도(%)': 'humidity', 
-    '현지기압(hPa)': 'spotatmosphericpressure', 
-    '지면온도(°C)': 'groundtemperature'
-}
-{
     '지점': 'measure_code', 
     '지점명': 'measure_name', 
-    '일시': 'date', 
+    '일시': 'datetime', 
     '기온(°C)': 'temperature', 
-    '기온 QC플래그': 'temperature-flag',
+    '기온 QC플래그': 'temperature_flag',
     '강수량(mm)': 'precipitation', 
-    '강수량 QC플래그': 'precipitation-flag',
+    '강수량 QC플래그': 'precipitation_flag',
     '풍속(m/s)': 'wind_speed', 
-    '풍속 QC플래그': 'wind_speed-flag',
+    '풍속 QC플래그': 'wind_speed_flag',
     '풍향(16방위)': 'wind_direction', 
-    '풍향 QC플래그': 'wind_direction-flag', 
+    '풍향 QC플래그': 'wind_direction_flag', 
     '습도(%)': 'humidity', 
-    '습도 QC플래그': 'humidity-flag',
+    '습도 QC플래그': 'humidity_flag',
     '증기압(hPa)': 'vapor_pressure', 
     '이슬점온도(°C)': 'dew_point_temperature', 
     '현지기압(hPa)': 'local_pressure', 
-    '현지기압 QC플래그': 'local_pressure-flag', 
-    '해면기압(hPa)': 'sea_​​level_pressure',
-    '해면기압 QC플래그': 'sea_​​level_pressure-flag', 
+    '현지기압 QC플래그': 'local_pressure_flag', 
+    '해면기압(hPa)': 'sea_level_pressure',
+    '해면기압 QC플래그': 'sea_level_pressure_flag', 
     '일조(hr)': 'sunshine', 
-    '일조 QC플래그': 'sunshine-flag', 
+    '일조 QC플래그': 'sunshine_flag', 
     '일사(MJ/m2)': 'solar_radiation', 
-    '일사 QC플래그': 'solar_radiation-flag', 
+    '일사 QC플래그': 'solar_radiation_flag', 
     '적설(cm)': 'snow',
     '3시간신적설(cm)': 'snow_3hour', 
     '전운량(10분위)': 'cloud', 
     '중하층운량(10분위)': 'mid_level_cloud',
     '운형(운형약어)': 'cloud_type', 
-    '최저운고(100m )',
+    '최저운고(100m )': 'lowest_cloud',
     '시정(10m)': 'visibility', 
     '지면상태(지면상태코드)': 'ground_status_code', 
     '현상번호(국내식)': 'weather_status_code', 
     '지면온도(°C)': 'ground_temperature', 
-    '지면온도 QC플래그': 'ground_temperature-flag',
+    '지면온도 QC플래그': 'ground_temperature_flag',
     '5cm 지중온도(°C)': '5cm_soil_temperature', 
     '10cm 지중온도(°C)': '10cm_soil_temperature', 
     '20cm 지중온도(°C)': '20cm_soil_temperature', 
@@ -359,21 +353,104 @@ columns = {
 data = []
 for year in [2018, 2019, 2020, 2021]:
     df = pd.read_csv(data_path / "weather" / f"{year}년.csv", encoding="euc-kr")
-    # df = df.rename(columns=columns).iloc[:, 2:]
+    df = df.rename(columns=columns)
+    df['datetime'] = pd.to_datetime(df['datetime'], format='%Y-%m-%d %H:%M').dt.strftime('%Y-%m-%d %H:%M:%S')
     data.append(df)
-df = pd.concat(data).reset_index(drop=True)
+df_weather = pd.concat(data).reset_index(drop=True)
 
 
-# In[28]:
+# In[9]:
 
 
-len(df['시정(10m)'].unique())
+cur = conn.cursor()
+cur.execute(
+"""
+CREATE TABLE IF NOT EXISTS weather (
+    wid INTEGER PRIMARY KEY,
+    measure_code INTEGER,
+    measure_name TEXT,
+    datetime TEXT,
+    temperature REAL,
+    temperature_flag REAL,
+    precipitation REAL,
+    precipitation_flag REAL,
+    wind_speed REAL,
+    wind_speed_flag REAL,
+    wind_direction REAL,
+    wind_direction_flag REAL,
+    humidity REAL,
+    humidity_flag REAL,
+    vapor_pressure REAL,
+    dew_point_temperature REAL,
+    local_pressure REAL,
+    local_pressure_flag REAL,
+    sea_level_pressure REAL,
+    sea_level_pressure_flag REAL,
+    sunshine REAL,
+    sunshine_flag REAL,
+    solar_radiation REAL,
+    solar_radiation_flag REAL,
+    snow REAL,
+    snow_3hour REAL,
+    cloud REAL,
+    mid_level_cloud REAL,
+    cloud_type TEXT,
+    lowest_cloud REAL,
+    visibility INTEGER,
+    ground_status_code REAL,
+    weather_status_code REAL,
+    ground_temperature REAL,
+    ground_temperature_flag REAL,
+    '5cm_soil_temperature' REAL,
+    '10cm_soil_temperature' REAL,
+    '20cm_soil_temperature' REAL,
+    '30cm_soil_temperature' REAL
+);
+"""
+)
+
+weather_columns = [
+    'measure_code', 'measure_name', 'datetime', 'temperature',
+    'temperature_flag', 'precipitation', 'precipitation_flag',
+    'wind_speed', 'wind_speed_flag', 'wind_direction',
+    'wind_direction_flag', 'humidity', 'humidity_flag',
+    'vapor_pressure', 'dew_point_temperature', 'local_pressure',
+    'local_pressure_flag', 'sea_level_pressure',
+    'sea_level_pressure_flag', 'sunshine', 'sunshine_flag',
+    'solar_radiation', 'solar_radiation_flag', 'snow', 'snow_3hour',
+    'cloud', 'mid_level_cloud', 'cloud_type', 'lowest_cloud',
+    'visibility', 'ground_status_code', 'weather_status_code',
+    'ground_temperature', 'ground_temperature_flag',
+    '5cm_soil_temperature', '10cm_soil_temperature',
+    '20cm_soil_temperature', '30cm_soil_temperature'
+]
+sql_weather = f"""
+INSERT INTO weather ('wid', {', '.join([f"'{x}'" for x in weather_columns])})
+VALUES (?{', ?'*(len(weather_columns))} );
+"""
+
+for i, x in tqdm(df_weather.iterrows(), total=len(df_weather)):
+    cur.execute(sql_weather, [i+1] + [x[c] for c in weather_columns])
+
+cur.close()
+conn.commit()
 
 
-# In[17]:
+# In[12]:
 
 
-df.head()
+sql = """SELECT * FROM sqlite_master WHERE type='table'
+"""
+cur = conn.cursor()
+res = cur.execute(sql).fetchall()
+cur.close()
+
+
+# In[14]:
+
+
+for x in res:
+    print(x[1])
 
 
 # In[ ]:

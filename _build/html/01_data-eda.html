@@ -1,0 +1,1511 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exploratory Data Analysis &#8212; My sample book</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data Handling" href="02_data-handling.html" />
+    <link rel="prev" title="Data Acquisition" href="00_data-acquisition.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Handbook For Data Science: Airpollution Project
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00_data-acquisition.html">
+   Data Acquisition
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Exploratory Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_data-handling.html">
+   Data Handling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_modeling.html">
+   Modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_monitoring.html">
+   Monitoring
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/01_data-eda.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/simonjisu/airpollution"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/simonjisu/airpollution/issues/new?title=Issue%20on%20page%20%2F01_data-eda.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/simonjisu/airpollution/gh-pages?urlpath=tree/_build/html/01_data-eda.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Exploratory Data Analysis
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sqlite3-database">
+   SQLite3 Database
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eda">
+   EDA
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#airquality">
+     Airquality
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#weather">
+     Weather
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Exploratory Data Analysis</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Exploratory Data Analysis
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sqlite3-database">
+   SQLite3 Database
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eda">
+   EDA
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#airquality">
+     Airquality
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#weather">
+     Weather
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="exploratory-data-analysis">
+<h1>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span> 
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+
+<span class="n">proj_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">()</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span>
+<span class="n">data_path</span> <span class="o">=</span> <span class="n">proj_path</span> <span class="o">/</span> <span class="s1">&#39;data&#39;</span> 
+
+<span class="c1"># set font family</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;font.family&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;NanumGothic&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="sqlite3-database">
+<h1>SQLite3 Database<a class="headerlink" href="#sqlite3-database" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">airmeasure</span>
+<span class="o">-------------------------------------</span>
+<span class="n">sid</span>           <span class="n">INTEGER</span> <span class="n">PRIMARY</span> <span class="n">KEY</span>
+<span class="n">measure_code</span>  <span class="n">INTEGER</span> <span class="n">NOT</span> <span class="n">NULL</span> <span class="n">UNIQUE</span>
+<span class="n">district</span>      <span class="n">TEXT</span> 
+<span class="n">measure_name</span>  <span class="n">TEXT</span>
+<span class="n">address</span>       <span class="n">TEXT</span>
+<span class="n">measure_point</span> <span class="n">TEXT</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">airquality</span>
+<span class="o">-------------------------------------</span>
+<span class="n">airid</span>         <span class="n">INTEGER</span> <span class="n">PRIMARY</span> <span class="n">KEY</span>
+<span class="n">measure_code</span>  <span class="n">INTEGER</span>
+<span class="n">datetime</span>      <span class="n">TEXT</span>
+<span class="n">SO2</span>           <span class="n">REAL</span>
+<span class="n">CO</span>            <span class="n">REAL</span>
+<span class="n">O3</span>            <span class="n">REAL</span>
+<span class="n">NO2</span>           <span class="n">REAL</span>
+<span class="n">PM10</span>          <span class="n">REAL</span>
+<span class="n">PM25</span>          <span class="n">REAL</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">holiday</span>
+<span class="o">-------------------------------------</span>
+<span class="n">hid</span>   <span class="n">INTEGER</span> <span class="n">PRIMARY</span> <span class="n">KEY</span>
+<span class="n">date</span>  <span class="n">TEXT</span>
+<span class="n">day</span>   <span class="n">TEXT</span>
+<span class="n">name</span>  <span class="n">TEXT</span>
+<span class="nb">type</span>  <span class="n">TEXT</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span>
+<span class="o">-------------------------------------</span>
+<span class="n">wid</span> <span class="n">INTEGER</span> <span class="n">PRIMARY</span> <span class="n">KEY</span>
+<span class="n">measure_code</span>            <span class="n">INTEGER</span>
+<span class="n">measure_name</span>            <span class="n">TEXT</span>
+<span class="n">datetime</span>                <span class="n">TEXT</span>
+<span class="n">temperature</span>             <span class="n">REAL</span>
+<span class="n">temperature_flag</span>        <span class="n">REAL</span>
+<span class="n">precipitation</span>           <span class="n">REAL</span>
+<span class="n">precipitation_flag</span>      <span class="n">REAL</span>
+<span class="n">wind_speed</span>              <span class="n">REAL</span>
+<span class="n">wind_speed_flag</span>         <span class="n">REAL</span>
+<span class="n">wind_direction</span>          <span class="n">REAL</span>
+<span class="n">wind_direction_flag</span>     <span class="n">REAL</span>
+<span class="n">humidity</span>                <span class="n">REAL</span>
+<span class="n">humidity_flag</span>           <span class="n">REAL</span>
+<span class="n">vapor_pressure</span>          <span class="n">REAL</span>
+<span class="n">dew_point_temperature</span>   <span class="n">REAL</span>
+<span class="n">local_pressure</span>          <span class="n">REAL</span>
+<span class="n">local_pressure_flag</span>     <span class="n">REAL</span>
+<span class="n">sea_level_pressure</span>      <span class="n">REAL</span>
+<span class="n">sea_level_pressure_flag</span> <span class="n">REAL</span>
+<span class="n">sunshine</span>                <span class="n">REAL</span>
+<span class="n">sunshine_flag</span>           <span class="n">REAL</span>
+<span class="n">solar_radiation</span>         <span class="n">REAL</span>
+<span class="n">solar_radiation_flag</span>    <span class="n">REAL</span>
+<span class="n">snow</span>                    <span class="n">REAL</span>
+<span class="n">snow_3hour</span>              <span class="n">REAL</span>
+<span class="n">cloud</span>                   <span class="n">REAL</span>
+<span class="n">mid_level_cloud</span>         <span class="n">REAL</span>
+<span class="n">cloud_type</span>              <span class="n">TEXT</span>
+<span class="n">lowest_cloud</span>            <span class="n">REAL</span>
+<span class="n">visibility</span>              <span class="n">INTEGER</span>
+<span class="n">ground_status_code</span>      <span class="n">REAL</span>
+<span class="n">weather_status_code</span>     <span class="n">REAL</span>
+<span class="n">ground_temperature</span>      <span class="n">REAL</span>
+<span class="n">ground_temperature_flag</span> <span class="n">REAL</span>
+<span class="mi">5</span><span class="n">cm_soil_temperature</span>    <span class="n">REAL</span>
+<span class="mi">10</span><span class="n">cm_soil_temperature</span>   <span class="n">REAL</span>
+<span class="mi">20</span><span class="n">cm_soil_temperature</span>   <span class="n">REAL</span>
+<span class="mi">30</span><span class="n">cm_soil_temperature</span>   <span class="n">REAL</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DBEngine</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;SQLite3 DB Engine Wrapper&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_path</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sql_statement</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql_statement</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">def</span> <span class="nf">quit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_sql</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+        <span class="c1"># no auto commit</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sql</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sql</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        
+<span class="n">db</span> <span class="o">=</span> <span class="n">DBEngine</span><span class="p">(</span><span class="n">db_path</span><span class="o">=</span><span class="n">data_path</span> <span class="o">/</span> <span class="s2">&quot;airpollution.db&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="eda">
+<h1>EDA<a class="headerlink" href="#eda" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="airquality">
+<h2>Airquality<a class="headerlink" href="#airquality" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">airmeasure</span>
+<span class="o">-------------------------------------</span>
+<span class="n">sid</span>           <span class="n">INTEGER</span> <span class="n">PRIMARY</span> <span class="n">KEY</span>
+<span class="n">measure_code</span>  <span class="n">INTEGER</span> <span class="n">NOT</span> <span class="n">NULL</span> <span class="n">UNIQUE</span>
+<span class="n">district</span>      <span class="n">TEXT</span> 
+<span class="n">measure_name</span>  <span class="n">TEXT</span>
+<span class="n">address</span>       <span class="n">TEXT</span>
+<span class="n">measure_point</span> <span class="n">TEXT</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">airquality</span>
+<span class="o">-------------------------------------</span>
+<span class="n">airid</span>         <span class="n">INTEGER</span> <span class="n">PRIMARY</span> <span class="n">KEY</span>
+<span class="n">measure_code</span>  <span class="n">INTEGER</span>
+<span class="n">datetime</span>      <span class="n">TEXT</span>
+<span class="n">SO2</span>           <span class="n">REAL</span>
+<span class="n">CO</span>            <span class="n">REAL</span>
+<span class="n">O3</span>            <span class="n">REAL</span>
+<span class="n">NO2</span>           <span class="n">REAL</span>
+<span class="n">PM10</span>          <span class="n">REAL</span>
+<span class="n">PM25</span>          <span class="n">REAL</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What is the date range?</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT MIN(datetime), MAX(datetime)</span>
+<span class="s2">FROM airquality</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>min</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2018-01-01 00:00:00</td>
+      <td>2021-07-31 23:00:00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What is the number of unique data districts?</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT COUNT(DISTINCT measure_code)</span>
+<span class="s2">FROM airmeasure</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+<span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># How is each data in the air for each district?</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT am.district, aq.datetime, aq.SO2, aq.CO, aq.O3, aq.NO2, aq.PM10, aq.PM25</span>
+<span class="s2">FROM airquality AS aq</span>
+<span class="s2">JOIN airmeasure AS am</span>
+<span class="s2">ON aq.measure_code = am.measure_code</span>
+<span class="s2">GROUP BY am.district, aq.datetime</span>
+<span class="s2">ORDER BY am.district, aq.datetime</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SO2&#39;</span><span class="p">,</span> <span class="s1">&#39;CO&#39;</span><span class="p">,</span> <span class="s1">&#39;O3&#39;</span><span class="p">,</span> <span class="s1">&#39;NO2&#39;</span><span class="p">,</span> <span class="s1">&#39;PM10&#39;</span><span class="p">,</span> <span class="s1">&#39;PM25&#39;</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;district&#39;</span><span class="p">,</span> <span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">columns</span><span class="p">)))</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data Statics on airquality values for each district? (null values)</span>
+<span class="c1"># How to fill these null values?</span>
+<span class="c1"># We can fill with data in previous day, assume the data will not change dramatically.</span>
+<span class="c1"># Or resample the value by other time stamp</span>
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;district&#39;</span><span class="p">])[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SO2</th>
+      <th>CO</th>
+      <th>O3</th>
+      <th>NO2</th>
+      <th>PM10</th>
+      <th>PM25</th>
+    </tr>
+    <tr>
+      <th>district</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>서울 강남구</th>
+      <td>1061</td>
+      <td>842</td>
+      <td>904</td>
+      <td>840</td>
+      <td>683</td>
+      <td>613</td>
+    </tr>
+    <tr>
+      <th>서울 강동구</th>
+      <td>880</td>
+      <td>277</td>
+      <td>402</td>
+      <td>471</td>
+      <td>931</td>
+      <td>653</td>
+    </tr>
+    <tr>
+      <th>서울 강북구</th>
+      <td>318</td>
+      <td>339</td>
+      <td>287</td>
+      <td>340</td>
+      <td>415</td>
+      <td>308</td>
+    </tr>
+    <tr>
+      <th>서울 강서구</th>
+      <td>702</td>
+      <td>284</td>
+      <td>254</td>
+      <td>1237</td>
+      <td>510</td>
+      <td>307</td>
+    </tr>
+    <tr>
+      <th>서울 관악구</th>
+      <td>1060</td>
+      <td>1164</td>
+      <td>1600</td>
+      <td>1206</td>
+      <td>1845</td>
+      <td>1847</td>
+    </tr>
+    <tr>
+      <th>서울 광진구</th>
+      <td>1872</td>
+      <td>1448</td>
+      <td>922</td>
+      <td>602</td>
+      <td>1196</td>
+      <td>956</td>
+    </tr>
+    <tr>
+      <th>서울 구로구</th>
+      <td>764</td>
+      <td>466</td>
+      <td>519</td>
+      <td>1061</td>
+      <td>1885</td>
+      <td>1327</td>
+    </tr>
+    <tr>
+      <th>서울 금천구</th>
+      <td>334</td>
+      <td>399</td>
+      <td>389</td>
+      <td>513</td>
+      <td>609</td>
+      <td>554</td>
+    </tr>
+    <tr>
+      <th>서울 노원구</th>
+      <td>283</td>
+      <td>295</td>
+      <td>268</td>
+      <td>657</td>
+      <td>450</td>
+      <td>439</td>
+    </tr>
+    <tr>
+      <th>서울 도봉구</th>
+      <td>755</td>
+      <td>1495</td>
+      <td>760</td>
+      <td>816</td>
+      <td>878</td>
+      <td>679</td>
+    </tr>
+    <tr>
+      <th>서울 동대문구</th>
+      <td>1212</td>
+      <td>1444</td>
+      <td>1136</td>
+      <td>1231</td>
+      <td>1249</td>
+      <td>1161</td>
+    </tr>
+    <tr>
+      <th>서울 동작구</th>
+      <td>425</td>
+      <td>1142</td>
+      <td>380</td>
+      <td>353</td>
+      <td>591</td>
+      <td>508</td>
+    </tr>
+    <tr>
+      <th>서울 마포구</th>
+      <td>1321</td>
+      <td>1387</td>
+      <td>1514</td>
+      <td>1454</td>
+      <td>1782</td>
+      <td>1512</td>
+    </tr>
+    <tr>
+      <th>서울 서대문구</th>
+      <td>1172</td>
+      <td>1256</td>
+      <td>1118</td>
+      <td>1173</td>
+      <td>2043</td>
+      <td>1377</td>
+    </tr>
+    <tr>
+      <th>서울 서초구</th>
+      <td>475</td>
+      <td>446</td>
+      <td>537</td>
+      <td>669</td>
+      <td>1456</td>
+      <td>902</td>
+    </tr>
+    <tr>
+      <th>서울 성동구</th>
+      <td>295</td>
+      <td>553</td>
+      <td>414</td>
+      <td>435</td>
+      <td>762</td>
+      <td>562</td>
+    </tr>
+    <tr>
+      <th>서울 성북구</th>
+      <td>346</td>
+      <td>2427</td>
+      <td>347</td>
+      <td>321</td>
+      <td>1331</td>
+      <td>863</td>
+    </tr>
+    <tr>
+      <th>서울 송파구</th>
+      <td>770</td>
+      <td>817</td>
+      <td>626</td>
+      <td>650</td>
+      <td>1150</td>
+      <td>788</td>
+    </tr>
+    <tr>
+      <th>서울 양천구</th>
+      <td>348</td>
+      <td>317</td>
+      <td>255</td>
+      <td>329</td>
+      <td>516</td>
+      <td>299</td>
+    </tr>
+    <tr>
+      <th>서울 영등포구</th>
+      <td>265</td>
+      <td>493</td>
+      <td>684</td>
+      <td>294</td>
+      <td>734</td>
+      <td>907</td>
+    </tr>
+    <tr>
+      <th>서울 용산구</th>
+      <td>323</td>
+      <td>500</td>
+      <td>337</td>
+      <td>406</td>
+      <td>626</td>
+      <td>2628</td>
+    </tr>
+    <tr>
+      <th>서울 은평구</th>
+      <td>586</td>
+      <td>987</td>
+      <td>630</td>
+      <td>696</td>
+      <td>969</td>
+      <td>850</td>
+    </tr>
+    <tr>
+      <th>서울 종로구</th>
+      <td>495</td>
+      <td>365</td>
+      <td>275</td>
+      <td>252</td>
+      <td>499</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <th>서울 중구</th>
+      <td>450</td>
+      <td>1686</td>
+      <td>449</td>
+      <td>379</td>
+      <td>454</td>
+      <td>319</td>
+    </tr>
+    <tr>
+      <th>서울 중랑구</th>
+      <td>1375</td>
+      <td>1629</td>
+      <td>1570</td>
+      <td>1376</td>
+      <td>1330</td>
+      <td>1248</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># see if the missing values are more than 1day</span>
+<span class="n">df_group</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;1D&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=-</span><span class="mi">1</span><span class="p">)])</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">24</span><span class="p">)</span>
+<span class="c1"># example</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">111121</span><span class="p">)</span> <span class="o">&amp;</span> 
+    <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;=</span><span class="s1">&#39;2020-05-24 23:00:00&#39;</span><span class="p">)</span> <span class="o">&amp;</span> 
+    <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="s1">&#39;2020-05-22 23:00:00&#39;</span><span class="p">)</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">Input In [7],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># see if the missing values are more than 1day</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">df_group</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;1D&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=-</span><span class="mi">1</span><span class="p">)])</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">24</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># example</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">111121</span><span class="p">)</span> <span class="o">&amp;</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;=</span><span class="s1">&#39;2020-05-24 23:00:00&#39;</span><span class="p">)</span> <span class="o">&amp;</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="s1">&#39;2020-05-22 23:00:00&#39;</span><span class="p">)</span> <span class="p">]</span>
+
+<span class="nn">File ~/miniconda3/lib/python3.8/site-packages/pandas/core/frame.py:7706,</span> in <span class="ni">DataFrame.groupby</span><span class="nt">(self, by, axis, level, as_index, sort, group_keys, squeeze, observed, dropna)</span>
+<span class="g g-Whitespace">   </span><span class="mi">7701</span> <span class="n">axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_axis_number</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">7703</span> <span class="c1"># https://github.com/python/mypy/issues/7642</span>
+<span class="g g-Whitespace">   </span><span class="mi">7704</span> <span class="c1"># error: Argument &quot;squeeze&quot; to &quot;DataFrameGroupBy&quot; has incompatible type</span>
+<span class="g g-Whitespace">   </span><span class="mi">7705</span> <span class="c1"># &quot;Union[bool, NoDefault]&quot;; expected &quot;bool&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">7706</span> <span class="k">return</span> <span class="n">DataFrameGroupBy</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">7707</span>     <span class="n">obj</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">7708</span>     <span class="n">keys</span><span class="o">=</span><span class="n">by</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">7709</span>     <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">7710</span>     <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">7711</span>     <span class="n">as_index</span><span class="o">=</span><span class="n">as_index</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">7712</span>     <span class="n">sort</span><span class="o">=</span><span class="n">sort</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">7713</span>     <span class="n">group_keys</span><span class="o">=</span><span class="n">group_keys</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">7714</span>     <span class="n">squeeze</span><span class="o">=</span><span class="n">squeeze</span><span class="p">,</span>  <span class="c1"># type: ignore[arg-type]</span>
+<span class="g g-Whitespace">   </span><span class="mi">7715</span>     <span class="n">observed</span><span class="o">=</span><span class="n">observed</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">7716</span>     <span class="n">dropna</span><span class="o">=</span><span class="n">dropna</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">7717</span> <span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:882,</span> in <span class="ni">GroupBy.__init__</span><span class="nt">(self, obj, keys, axis, level, grouper, exclusions, selection, as_index, sort, group_keys, squeeze, observed, mutated, dropna)</span>
+<span class="g g-Whitespace">    </span><span class="mi">879</span> <span class="k">if</span> <span class="n">grouper</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">880</span>     <span class="kn">from</span> <span class="nn">pandas.core.groupby.grouper</span> <span class="kn">import</span> <span class="n">get_grouper</span>
+<span class="ne">--&gt; </span><span class="mi">882</span>     <span class="n">grouper</span><span class="p">,</span> <span class="n">exclusions</span><span class="p">,</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">get_grouper</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">883</span>         <span class="n">obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">884</span>         <span class="n">keys</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">885</span>         <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">886</span>         <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">887</span>         <span class="n">sort</span><span class="o">=</span><span class="n">sort</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">888</span>         <span class="n">observed</span><span class="o">=</span><span class="n">observed</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">889</span>         <span class="n">mutated</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mutated</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">890</span>         <span class="n">dropna</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dropna</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">891</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">893</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">obj</span>
+<span class="g g-Whitespace">    </span><span class="mi">894</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">_get_axis_number</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/lib/python3.8/site-packages/pandas/core/groupby/grouper.py:893,</span> in <span class="ni">get_grouper</span><span class="nt">(obj, key, axis, level, sort, observed, mutated, validate, dropna)</span>
+<span class="g g-Whitespace">    </span><span class="mi">888</span>         <span class="n">in_axis</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">    </span><span class="mi">890</span>     <span class="c1"># create the Grouping</span>
+<span class="g g-Whitespace">    </span><span class="mi">891</span>     <span class="c1"># allow us to passing the actual Grouping as the gpr</span>
+<span class="g g-Whitespace">    </span><span class="mi">892</span>     <span class="n">ping</span> <span class="o">=</span> <span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">893</span>         <span class="n">Grouping</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">894</span>             <span class="n">group_axis</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">895</span>             <span class="n">gpr</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">896</span>             <span class="n">obj</span><span class="o">=</span><span class="n">obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">897</span>             <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">898</span>             <span class="n">sort</span><span class="o">=</span><span class="n">sort</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">899</span>             <span class="n">observed</span><span class="o">=</span><span class="n">observed</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">900</span>             <span class="n">in_axis</span><span class="o">=</span><span class="n">in_axis</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">901</span>             <span class="n">dropna</span><span class="o">=</span><span class="n">dropna</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">902</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">903</span>         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">gpr</span><span class="p">,</span> <span class="n">Grouping</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">904</span>         <span class="k">else</span> <span class="n">gpr</span>
+<span class="g g-Whitespace">    </span><span class="mi">905</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">907</span>     <span class="n">groupings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ping</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">909</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">groupings</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+
+<span class="nn">File ~/miniconda3/lib/python3.8/site-packages/pandas/core/groupby/grouper.py:515,</span> in <span class="ni">Grouping.__init__</span><span class="nt">(self, index, grouper, obj, level, sort, observed, in_axis, dropna)</span>
+<span class="g g-Whitespace">    </span><span class="mi">509</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grouping_vector</span><span class="p">,</span> <span class="n">Grouper</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">510</span>     <span class="c1"># get the new grouper; we already have disambiguated</span>
+<span class="g g-Whitespace">    </span><span class="mi">511</span>     <span class="c1"># what key/level refer to exactly, don&#39;t need to</span>
+<span class="g g-Whitespace">    </span><span class="mi">512</span>     <span class="c1"># check again as we have by this point converted these</span>
+<span class="g g-Whitespace">    </span><span class="mi">513</span>     <span class="c1"># to an actual value (rather than a pd.Grouper)</span>
+<span class="g g-Whitespace">    </span><span class="mi">514</span>     <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>  <span class="c1"># for mypy</span>
+<span class="ne">--&gt; </span><span class="mi">515</span>     <span class="n">_</span><span class="p">,</span> <span class="n">newgrouper</span><span class="p">,</span> <span class="n">newobj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouping_vector</span><span class="o">.</span><span class="n">_get_grouper</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">516</span>         <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span>
+<span class="g g-Whitespace">    </span><span class="mi">517</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">518</span>     <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">newobj</span>
+<span class="g g-Whitespace">    </span><span class="mi">520</span>     <span class="n">ng</span> <span class="o">=</span> <span class="n">newgrouper</span><span class="o">.</span><span class="n">_get_grouper</span><span class="p">()</span>
+
+<span class="nn">File ~/miniconda3/lib/python3.8/site-packages/pandas/core/resample.py:1607,</span> in <span class="ni">TimeGrouper._get_grouper</span><span class="nt">(self, obj, validate)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1605</span> <span class="k">def</span> <span class="nf">_get_grouper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">validate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1606</span>     <span class="c1"># create the resampler and return our binner</span>
+<span class="ne">-&gt; </span><span class="mi">1607</span>     <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_resampler</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1608</span>     <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">binner</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">grouper</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">obj</span>
+
+<span class="nn">File ~/miniconda3/lib/python3.8/site-packages/pandas/core/resample.py:1589,</span> in <span class="ni">TimeGrouper._get_resampler</span><span class="nt">(self, obj, kind)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1570</span> <span class="k">def</span> <span class="nf">_get_resampler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1571</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1572</span><span class="sd">     Return my resampler or raise if we have an invalid axis.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1573</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1587</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1588</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1589</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_set_grouper</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1591</span>     <span class="n">ax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ax</span>
+<span class="g g-Whitespace">   </span><span class="mi">1592</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">DatetimeIndex</span><span class="p">):</span>
+
+<span class="nn">File ~/miniconda3/lib/python3.8/site-packages/pandas/core/groupby/grouper.py:400,</span> in <span class="ni">Grouper._set_grouper</span><span class="nt">(self, obj, sort)</span>
+<span class="g g-Whitespace">    </span><span class="mi">398</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">399</span>             <span class="k">if</span> <span class="n">level</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ax</span><span class="o">.</span><span class="n">name</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">400</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The level </span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s2"> is not valid&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span> <span class="c1"># possibly sort</span>
+<span class="g g-Whitespace">    </span><span class="mi">403</span> <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sort</span> <span class="ow">or</span> <span class="n">sort</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">ax</span><span class="o">.</span><span class="n">is_monotonic</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span>     <span class="c1"># use stable sort to support first, last, nth</span>
+<span class="g g-Whitespace">    </span><span class="mi">405</span>     <span class="c1"># TODO: why does putting na_position=&quot;first&quot; fix datetimelike cases?</span>
+
+<span class="ne">ValueError</span>: The level -1 is not valid
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="n">typ</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">freq</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">df_temp</span> <span class="o">=</span> <span class="n">df</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">df_temp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;district&#39;</span><span class="p">,</span> <span class="s1">&#39;datetime&#39;</span><span class="p">])</span>
+        <span class="n">df_temp</span> <span class="o">=</span> <span class="n">df_temp</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">df_temp</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="n">freq</span><span class="p">,</span> <span class="n">level</span><span class="o">=-</span><span class="mi">1</span><span class="p">)])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">typ</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;district&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_temp</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">typ</span><span class="si">}</span><span class="s1"> value (freq:</span><span class="si">{</span><span class="s2">&quot;1 Hour&quot;</span> <span class="k">if</span> <span class="n">freq</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">freq</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.15</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">w_typ</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+    <span class="n">options</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;type:&#39;</span><span class="p">,</span>
+    <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">w_freq</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+    <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;1D&#39;</span><span class="p">,</span> <span class="s1">&#39;1W&#39;</span><span class="p">,</span> <span class="s1">&#39;1M&#39;</span><span class="p">],</span>
+    <span class="n">value</span><span class="o">=</span><span class="s1">&#39;1M&#39;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;freq:&#39;</span><span class="p">,</span>
+    <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ui</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">HBox</span><span class="p">([</span><span class="n">w_typ</span><span class="p">,</span> <span class="n">w_freq</span><span class="p">])</span>
+
+<span class="n">out</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">interactive_output</span><span class="p">(</span><span class="n">draw</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;typ&#39;</span><span class="p">:</span> <span class="n">w_typ</span><span class="p">,</span> <span class="s1">&#39;df&#39;</span><span class="p">:</span> <span class="n">widgets</span><span class="o">.</span><span class="n">fixed</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="s1">&#39;freq&#39;</span><span class="p">:</span> <span class="n">w_freq</span><span class="p">})</span>
+<span class="n">display</span><span class="p">(</span><span class="n">ui</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "8532b1b278f142969ddfe31bf2a5fac4", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "4eed8098398f444d812a07894f64bacc", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+</div>
+<div class="section" id="weather">
+<h2>Weather<a class="headerlink" href="#weather" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">weather</span>
+<span class="o">-------------------------------------</span>
+<span class="n">wid</span> <span class="n">INTEGER</span> <span class="n">PRIMARY</span> <span class="n">KEY</span>
+<span class="n">measure_code</span>            <span class="n">INTEGER</span>
+<span class="n">measure_name</span>            <span class="n">TEXT</span>
+<span class="n">datetime</span>                <span class="n">TEXT</span>
+<span class="n">temperature</span>             <span class="n">REAL</span>
+<span class="n">temperature_flag</span>        <span class="n">REAL</span>
+<span class="n">precipitation</span>           <span class="n">REAL</span>
+<span class="n">precipitation_flag</span>      <span class="n">REAL</span>
+<span class="n">wind_speed</span>              <span class="n">REAL</span>
+<span class="n">wind_speed_flag</span>         <span class="n">REAL</span>
+<span class="n">wind_direction</span>          <span class="n">REAL</span>
+<span class="n">wind_direction_flag</span>     <span class="n">REAL</span>
+<span class="n">humidity</span>                <span class="n">REAL</span>
+<span class="n">humidity_flag</span>           <span class="n">REAL</span>
+<span class="n">vapor_pressure</span>          <span class="n">REAL</span>
+<span class="n">dew_point_temperature</span>   <span class="n">REAL</span>
+<span class="n">local_pressure</span>          <span class="n">REAL</span>
+<span class="n">local_pressure_flag</span>     <span class="n">REAL</span>
+<span class="n">sea_level_pressure</span>      <span class="n">REAL</span>
+<span class="n">sea_level_pressure_flag</span> <span class="n">REAL</span>
+<span class="n">sunshine</span>                <span class="n">REAL</span>
+<span class="n">sunshine_flag</span>           <span class="n">REAL</span>
+<span class="n">solar_radiation</span>         <span class="n">REAL</span>
+<span class="n">solar_radiation_flag</span>    <span class="n">REAL</span>
+<span class="n">snow</span>                    <span class="n">REAL</span>
+<span class="n">snow_3hour</span>              <span class="n">REAL</span>
+<span class="n">cloud</span>                   <span class="n">REAL</span>
+<span class="n">mid_level_cloud</span>         <span class="n">REAL</span>
+<span class="n">cloud_type</span>              <span class="n">TEXT</span>
+<span class="n">lowest_cloud</span>            <span class="n">REAL</span>
+<span class="n">visibility</span>              <span class="n">INTEGER</span>
+<span class="n">ground_status_code</span>      <span class="n">REAL</span>
+<span class="n">weather_status_code</span>     <span class="n">REAL</span>
+<span class="n">ground_temperature</span>      <span class="n">REAL</span>
+<span class="n">ground_temperature_flag</span> <span class="n">REAL</span>
+<span class="mi">5</span><span class="n">cm_soil_temperature</span>    <span class="n">REAL</span>
+<span class="mi">10</span><span class="n">cm_soil_temperature</span>   <span class="n">REAL</span>
+<span class="mi">20</span><span class="n">cm_soil_temperature</span>   <span class="n">REAL</span>
+<span class="mi">30</span><span class="n">cm_soil_temperature</span>   <span class="n">REAL</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What is the date range?</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT MIN(datetime), MAX(datetime)</span>
+<span class="s2">FROM weather</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>min</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2018-01-01 00:00:00</td>
+      <td>2021-07-31 23:00:00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What is the number of unique data districts?</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT DISTINCT measure_name</span>
+<span class="s2">FROM weather</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1"># only single district</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>서울
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># </span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT </span>
+<span class="s2">    datetime, temperature, temperature_flag, precipitation, precipitation_flag, wind_speed, wind_speed_flag,</span>
+<span class="s2">    wind_direction, wind_direction_flag, humidity, humidity_flag, vapor_pressure, dew_point_temperature, </span>
+<span class="s2">    local_pressure, local_pressure_flag, sea_level_pressure, sea_level_pressure_flag, sunshine, sunshine_flag, </span>
+<span class="s2">    solar_radiation, solar_radiation_flag, snow, snow_3hour, cloud, mid_level_cloud, cloud_type, lowest_cloud,</span>
+<span class="s2">    visibility, ground_status_code, weather_status_code, ground_temperature, ground_temperature_flag,</span>
+<span class="s2">    &quot;5cm_soil_temperature&quot;, &quot;10cm_soil_temperature&quot;, &quot;20cm_soil_temperature&quot;, &quot;30cm_soil_temperature&quot;</span>
+<span class="s2">FROM weather</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="s1">&#39;temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;temperature_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;precipitation&#39;</span><span class="p">,</span> <span class="s1">&#39;precipitation_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;wind_speed&#39;</span><span class="p">,</span> <span class="s1">&#39;wind_speed_flag&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;wind_direction&#39;</span><span class="p">,</span> <span class="s1">&#39;wind_direction_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;humidity&#39;</span><span class="p">,</span> <span class="s1">&#39;humidity_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;vapor_pressure&#39;</span><span class="p">,</span> <span class="s1">&#39;dew_point_temperature&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;local_pressure&#39;</span><span class="p">,</span> <span class="s1">&#39;local_pressure_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;sea_level_pressure&#39;</span><span class="p">,</span> <span class="s1">&#39;sea_level_pressure_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;sunshine&#39;</span><span class="p">,</span> <span class="s1">&#39;sunshine_flag&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;solar_radiation&#39;</span><span class="p">,</span> <span class="s1">&#39;solar_radiation_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;snow&#39;</span><span class="p">,</span> <span class="s1">&#39;snow_3hour&#39;</span><span class="p">,</span> <span class="s1">&#39;cloud&#39;</span><span class="p">,</span> <span class="s1">&#39;mid_level_cloud&#39;</span><span class="p">,</span> <span class="s1">&#39;cloud_type&#39;</span><span class="p">,</span> <span class="s1">&#39;lowest_cloud&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;visibility&#39;</span><span class="p">,</span> <span class="s1">&#39;ground_status_code&#39;</span><span class="p">,</span> <span class="s1">&#39;weather_status_code&#39;</span><span class="p">,</span> <span class="s1">&#39;ground_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;ground_temperature_flag&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;5cm_soil_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;10cm_soil_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;20cm_soil_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;30cm_soil_temperature&#39;</span>
+<span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">columns</span><span class="p">)))</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_data_with_flag</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">check_column</span><span class="p">,</span> <span class="n">print_res</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">check_cs</span> <span class="o">=</span> <span class="p">[</span><span class="n">check_column</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">check_column</span><span class="si">}</span><span class="s1">_flag&#39;</span><span class="p">]</span>
+    <span class="n">df_temp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">check_cs</span><span class="p">]</span>
+    <span class="n">unique_values</span> <span class="o">=</span> <span class="n">df_temp</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">check_column</span><span class="si">}</span><span class="s1">_flag&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">print_res</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Unique values in &quot;</span><span class="si">{</span><span class="n">check_column</span><span class="si">}</span><span class="s1">&quot;:&#39;</span><span class="p">,</span> <span class="n">unique_values</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of Nulls in &quot;</span><span class="si">{</span><span class="n">check_column</span><span class="si">}</span><span class="s1">&quot;:&#39;</span><span class="p">)</span>
+    <span class="n">cl</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">unique_values</span><span class="p">:</span>
+        <span class="n">df_temperature</span> <span class="o">=</span> <span class="n">df_temp</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_temp</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">check_column</span><span class="si">}</span><span class="s1">_flag&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="n">x</span><span class="p">]),</span> <span class="n">check_column</span><span class="p">]</span>
+        <span class="n">number_of_data</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_temperature</span><span class="p">)</span>
+        <span class="n">number_of_null</span> <span class="o">=</span> <span class="n">df_temperature</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">cl</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">number_of_null</span><span class="p">,</span> <span class="n">number_of_data</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">print_res</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">number_of_null</span><span class="si">}</span><span class="s1"> / </span><span class="si">{</span><span class="n">number_of_data</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cl</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check nulls for flag columns</span>
+<span class="c1"># c, cl, null, data</span>
+<span class="n">check_columns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;precipitation&#39;</span><span class="p">,</span> <span class="s1">&#39;wind_speed&#39;</span><span class="p">,</span> <span class="s1">&#39;wind_direction&#39;</span><span class="p">,</span> <span class="s1">&#39;humidity&#39;</span><span class="p">,</span> <span class="s1">&#39;local_pressure&#39;</span><span class="p">,</span> <span class="s1">&#39;sea_level_pressure&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;sunshine&#39;</span><span class="p">,</span> <span class="s1">&#39;solar_radiation&#39;</span><span class="p">,</span> <span class="s1">&#39;ground_temperature&#39;</span>
+<span class="p">]</span>
+<span class="n">c_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;column&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;flag_value&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;number_of_null&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;number_of_data&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">check_columns</span><span class="p">:</span>
+    <span class="n">cl</span> <span class="o">=</span> <span class="n">check_data_with_flag</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">check_column</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">values</span><span class="p">,</span> <span class="n">number_of_nulls</span><span class="p">,</span> <span class="n">number_of_datas</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">cl</span><span class="p">))</span>
+    <span class="n">c_dict</span><span class="p">[</span><span class="s1">&#39;column&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">cl</span><span class="p">)</span>
+    <span class="n">c_dict</span><span class="p">[</span><span class="s1">&#39;flag_value&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">values</span>
+    <span class="n">c_dict</span><span class="p">[</span><span class="s1">&#39;number_of_null&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">number_of_nulls</span>
+    <span class="n">c_dict</span><span class="p">[</span><span class="s1">&#39;number_of_data&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">number_of_datas</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">c_dict</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;column&#39;</span><span class="p">,</span> <span class="s1">&#39;flag_value&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>number_of_null</th>
+      <th>number_of_data</th>
+    </tr>
+    <tr>
+      <th>column</th>
+      <th>flag_value</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">ground_temperature</th>
+      <th>0.0</th>
+      <td>0</td>
+      <td>7696</td>
+    </tr>
+    <tr>
+      <th>9.0</th>
+      <td>23</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>0</td>
+      <td>23672</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">humidity</th>
+      <th>0.0</th>
+      <td>0</td>
+      <td>7594</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>0</td>
+      <td>23798</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">local_pressure</th>
+      <th>0.0</th>
+      <td>0</td>
+      <td>7594</td>
+    </tr>
+    <tr>
+      <th>1.0</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>9.0</th>
+      <td>10</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>0</td>
+      <td>23785</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">precipitation</th>
+      <th>0.0</th>
+      <td>0</td>
+      <td>633</td>
+    </tr>
+    <tr>
+      <th>9.0</th>
+      <td>5564</td>
+      <td>5566</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>22507</td>
+      <td>25193</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">sea_level_pressure</th>
+      <th>0.0</th>
+      <td>0</td>
+      <td>7594</td>
+    </tr>
+    <tr>
+      <th>1.0</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>9.0</th>
+      <td>10</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>0</td>
+      <td>23785</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">solar_radiation</th>
+      <th>0.0</th>
+      <td>0</td>
+      <td>3847</td>
+    </tr>
+    <tr>
+      <th>9.0</th>
+      <td>14135</td>
+      <td>14135</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>2</td>
+      <td>13410</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">sunshine</th>
+      <th>0.0</th>
+      <td>0</td>
+      <td>3845</td>
+    </tr>
+    <tr>
+      <th>9.0</th>
+      <td>14135</td>
+      <td>14135</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>2</td>
+      <td>13412</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">temperature</th>
+      <th>0.0</th>
+      <td>0</td>
+      <td>7622</td>
+    </tr>
+    <tr>
+      <th>1.0</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>9.0</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>0</td>
+      <td>23768</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">wind_direction</th>
+      <th>0.0</th>
+      <td>0</td>
+      <td>7245</td>
+    </tr>
+    <tr>
+      <th>9.0</th>
+      <td>9</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>2</td>
+      <td>24138</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">wind_speed</th>
+      <th>0.0</th>
+      <td>0</td>
+      <td>7245</td>
+    </tr>
+    <tr>
+      <th>9.0</th>
+      <td>9</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>NaN</th>
+      <td>2</td>
+      <td>24138</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">check_columns</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">check_columns</span><span class="p">):</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-33-21c9ca7c1b01&gt;:6: UserWarning: Glyph 8722 (\N{MINUS SIGN}) missing from current font.
+  plt.tight_layout()
+/home/simonjisu/miniconda3/lib/python3.8/site-packages/IPython/core/pylabtools.py:151: UserWarning: Glyph 8722 (\N{MINUS SIGN}) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)
+</pre></div>
+</div>
+<img alt="_images/01_data-eda_17_1.png" src="_images/01_data-eda_17_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">check_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ground_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;5cm_soil_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;10cm_soil_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;20cm_soil_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;30cm_soil_temperature&#39;</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">check_columns</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">check_columns</span><span class="p">):</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/01_data-eda_18_0.png" src="_images/01_data-eda_18_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">check_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ground_status_code&#39;</span><span class="p">,</span> <span class="s1">&#39;weather_status_code&#39;</span><span class="p">,</span> <span class="s1">&#39;visibility&#39;</span><span class="p">,</span> <span class="s1">&#39;dew_point_temperature&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">check_columns</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ground_status_code 1
+weather_status_code 66
+visibility 1924
+dew_point_temperature 568
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="00_data-acquisition.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Data Acquisition</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="02_data-handling.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Handling</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By The Jupyter Book Community<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

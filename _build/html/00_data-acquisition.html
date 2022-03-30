@@ -53,6 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Exploratory Data Analysis" href="01_data-eda.html" />
+    <link rel="prev" title="Handbook For Data Science: Airpollution Project" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -86,30 +88,40 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="이 책 검색 ..." aria-label="이 책 검색 ..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   Welcome to your Jupyter Book
+   Handbook For Data Science: Airpollution Project
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="markdown.html">
-   Markdown Files
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Data Acquisition
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="notebooks.html">
-   Content with notebooks
+  <a class="reference internal" href="01_data-eda.html">
+   Exploratory Data Analysis
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="markdown-notebooks.html">
-   Notebooks with MyST Markdown
+  <a class="reference internal" href="02_data-handling.html">
+   Data Handling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_modeling.html">
+   Modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_monitoring.html">
+   Monitoring
   </a>
  </li>
 </ul>
@@ -137,8 +149,8 @@ const thebe_selector_output = ".output, .cell_output"
             
             <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
                 data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="탐색 전환" aria-controls="site-navigation"
-                title="탐색 전환" data-toggle="tooltip" data-placement="left">
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
                 <i class="fas fa-bars"></i>
                 <i class="fas fa-arrow-left"></i>
                 <i class="fas fa-arrow-up"></i>
@@ -146,7 +158,7 @@ const thebe_selector_output = ".output, .cell_output"
             
             
 <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="이 페이지 다운로드"><i
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
     <div class="dropdown-buttons">
@@ -154,10 +166,10 @@ const thebe_selector_output = ".output, .cell_output"
         
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="_sources/00_data-acquisition.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="소스 파일 다운로드" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="PDF로 인쇄"
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
@@ -170,12 +182,12 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
             href="https://github.com/simonjisu/airpollution"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="소스 저장소"><i
-                    class="fab fa-github"></i>저장소</button></a>
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
             href="https://github.com/simonjisu/airpollution/issues/new?title=Issue%20on%20page%20%2F00_data-acquisition.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="이슈 열기"><i class="fas fa-lightbulb"></i>열린 문제</button></a>
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
     </div>
 </div>
@@ -183,8 +195,8 @@ const thebe_selector_output = ".output, .cell_output"
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="전체 화면으로보기"
-        title="전체 화면으로보기"><i
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
@@ -195,7 +207,7 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="dropdown-buttons">
         
         <a class="binder-button" href="https://mybinder.org/v2/gh/simonjisu/airpollution/gh-pages?urlpath=tree/_build/html/00_data-acquisition.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="시작하다 Binder" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
@@ -212,7 +224,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> 내용
+                <i class="fas fa-list"></i> Contents
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -257,7 +269,7 @@ const thebe_selector_output = ".output, .cell_output"
                     <div id="jb-print-toc">
                         
                         <div>
-                            <h2> 내용 </h2>
+                            <h2> Contents </h2>
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
@@ -299,14 +311,11 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>Data Acquisition<a class="headerlink" href="#data-acquisition" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sqlite3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 <span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="n">proj_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">()</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span>
 <span class="n">data_path</span> <span class="o">=</span> <span class="n">proj_path</span> <span class="o">/</span> <span class="s1">&#39;data&#39;</span> 
@@ -349,7 +358,7 @@ const thebe_selector_output = ".output, .cell_output"
 
     <span class="k">return</span> <span class="n">df</span>
 
-<span class="k">def</span> <span class="nf">filter_seoul</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">filter_seoul</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;지역&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;서울&#39;</span><span class="p">),</span> <span class="p">:]</span>
 </pre></div>
 </div>
@@ -383,7 +392,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "0506c49621f14b0c835e658303f53fb1"}
+{"version_major": 2, "version_minor": 0, "model_id": "95780f9104364b94ad0b3d2956f9c42b"}
 </script><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="nn">Input In [4],</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
@@ -405,7 +414,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="k">else</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="k">try</span><span class="p">:</span>
 
-<span class="nn">File ~\miniconda3\envs\venv\lib\site-packages\pandas\util\_decorators.py:311,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="nn">File ~/miniconda3/lib/python3.8/site-packages/pandas/util/_decorators.py:311,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">305</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">306</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
 <span class="g g-Whitespace">    </span><span class="mi">307</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">arguments</span><span class="p">),</span>
@@ -414,7 +423,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="g g-Whitespace">    </span><span class="mi">310</span>     <span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">311</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="nn">File ~\miniconda3\envs\venv\lib\site-packages\pandas\io\excel\_base.py:465,</span> in <span class="ni">read_excel</span><span class="nt">(io, sheet_name, header, names, index_col, usecols, squeeze, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, parse_dates, date_parser, thousands, decimal, comment, skipfooter, convert_float, mangle_dupe_cols, storage_options)</span>
+<span class="nn">File ~/miniconda3/lib/python3.8/site-packages/pandas/io/excel/_base.py:465,</span> in <span class="ni">read_excel</span><span class="nt">(io, sheet_name, header, names, index_col, usecols, squeeze, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, parse_dates, date_parser, thousands, decimal, comment, skipfooter, convert_float, mangle_dupe_cols, storage_options)</span>
 <span class="g g-Whitespace">    </span><span class="mi">459</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
 <span class="g g-Whitespace">    </span><span class="mi">460</span>         <span class="s2">&quot;Engine should not be specified when passing &quot;</span>
 <span class="g g-Whitespace">    </span><span class="mi">461</span>         <span class="s2">&quot;an ExcelFile - ExcelFile already has the engine set&quot;</span>
@@ -450,7 +459,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="g g-Whitespace">    </span><span class="mi">492</span>     <span class="c1"># make sure to close opened file handles</span>
 <span class="g g-Whitespace">    </span><span class="mi">493</span>     <span class="k">if</span> <span class="n">should_close</span><span class="p">:</span>
 
-<span class="nn">File ~\miniconda3\envs\venv\lib\site-packages\pandas\io\excel\_base.py:1458,</span> in <span class="ni">ExcelFile.parse</span><span class="nt">(self, sheet_name, header, names, index_col, usecols, squeeze, converters, true_values, false_values, skiprows, nrows, na_values, parse_dates, date_parser, thousands, comment, skipfooter, convert_float, mangle_dupe_cols, **kwds)</span>
+<span class="nn">File ~/miniconda3/lib/python3.8/site-packages/pandas/io/excel/_base.py:1458,</span> in <span class="ni">ExcelFile.parse</span><span class="nt">(self, sheet_name, header, names, index_col, usecols, squeeze, converters, true_values, false_values, skiprows, nrows, na_values, parse_dates, date_parser, thousands, comment, skipfooter, convert_float, mangle_dupe_cols, **kwds)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1424</span> <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span>
 <span class="g g-Whitespace">   </span><span class="mi">1425</span>     <span class="bp">self</span><span class="p">,</span>
 <span class="g g-Whitespace">   </span><span class="mi">1426</span>     <span class="n">sheet_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
@@ -486,7 +495,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="g g-Whitespace">   </span><span class="mi">1478</span>         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
 <span class="g g-Whitespace">   </span><span class="mi">1479</span>     <span class="p">)</span>
 
-<span class="nn">File ~\miniconda3\envs\venv\lib\site-packages\pandas\io\excel\_base.py:638,</span> in <span class="ni">BaseExcelReader.parse</span><span class="nt">(self, sheet_name, header, names, index_col, usecols, squeeze, dtype, true_values, false_values, skiprows, nrows, na_values, verbose, parse_dates, date_parser, thousands, decimal, comment, skipfooter, convert_float, mangle_dupe_cols, **kwds)</span>
+<span class="nn">File ~/miniconda3/lib/python3.8/site-packages/pandas/io/excel/_base.py:638,</span> in <span class="ni">BaseExcelReader.parse</span><span class="nt">(self, sheet_name, header, names, index_col, usecols, squeeze, dtype, true_values, false_values, skiprows, nrows, na_values, verbose, parse_dates, date_parser, thousands, decimal, comment, skipfooter, convert_float, mangle_dupe_cols, **kwds)</span>
 <span class="g g-Whitespace">    </span><span class="mi">635</span> <span class="k">else</span><span class="p">:</span>  <span class="c1"># assume an integer if not a string</span>
 <span class="g g-Whitespace">    </span><span class="mi">636</span>     <span class="n">sheet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_sheet_by_index</span><span class="p">(</span><span class="n">asheetname</span><span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">638</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_sheet_data</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">convert_float</span><span class="p">)</span>
@@ -494,7 +503,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="g g-Whitespace">    </span><span class="mi">640</span>     <span class="c1"># pyxlsb opens two TemporaryFiles</span>
 <span class="g g-Whitespace">    </span><span class="mi">641</span>     <span class="n">sheet</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-<span class="nn">File ~\miniconda3\envs\venv\lib\site-packages\pandas\io\excel\_openpyxl.py:575,</span> in <span class="ni">OpenpyxlReader.get_sheet_data</span><span class="nt">(self, sheet, convert_float)</span>
+<span class="nn">File ~/miniconda3/lib/python3.8/site-packages/pandas/io/excel/_openpyxl.py:575,</span> in <span class="ni">OpenpyxlReader.get_sheet_data</span><span class="nt">(self, sheet, convert_float)</span>
 <span class="g g-Whitespace">    </span><span class="mi">573</span> <span class="n">data</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Scalar</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="g g-Whitespace">    </span><span class="mi">574</span> <span class="n">last_row_with_data</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 <span class="ne">--&gt; </span><span class="mi">575</span> <span class="k">for</span> <span class="n">row_number</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sheet</span><span class="o">.</span><span class="n">rows</span><span class="p">):</span>
@@ -502,7 +511,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="g g-Whitespace">    </span><span class="mi">577</span>     <span class="k">while</span> <span class="n">converted_row</span> <span class="ow">and</span> <span class="n">converted_row</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">578</span>         <span class="c1"># trim trailing empty elements</span>
 
-<span class="nn">File ~\miniconda3\envs\venv\lib\site-packages\openpyxl\worksheet\_read_only.py:79,</span> in <span class="ni">ReadOnlyWorksheet._cells_by_row</span><span class="nt">(self, min_col, min_row, max_col, max_row, values_only)</span>
+<span class="nn">File ~/miniconda3/lib/python3.8/site-packages/openpyxl/worksheet/_read_only.py:79,</span> in <span class="ni">ReadOnlyWorksheet._cells_by_row</span><span class="nt">(self, min_col, min_row, max_col, max_row, values_only)</span>
 <span class="g g-Whitespace">     </span><span class="mi">75</span> <span class="n">src</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_source</span><span class="p">()</span>
 <span class="g g-Whitespace">     </span><span class="mi">76</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">WorkSheetParser</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shared_strings</span><span class="p">,</span>
 <span class="g g-Whitespace">     </span><span class="mi">77</span>                          <span class="n">data_only</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">data_only</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">epoch</span><span class="p">,</span>
@@ -511,7 +520,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="g g-Whitespace">     </span><span class="mi">80</span>     <span class="k">if</span> <span class="n">max_row</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">idx</span> <span class="o">&gt;</span> <span class="n">max_row</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">81</span>         <span class="k">break</span>
 
-<span class="nn">File ~\miniconda3\envs\venv\lib\site-packages\openpyxl\worksheet\_reader.py:144,</span> in <span class="ni">WorkSheetParser.parse</span><span class="nt">(self)</span>
+<span class="nn">File ~/miniconda3/lib/python3.8/site-packages/openpyxl/worksheet/_reader.py:144,</span> in <span class="ni">WorkSheetParser.parse</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">    </span><span class="mi">125</span> <span class="n">properties</span> <span class="o">=</span> <span class="p">{</span>
 <span class="g g-Whitespace">    </span><span class="mi">126</span>     <span class="n">PRINT_TAG</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;print_options&#39;</span><span class="p">,</span> <span class="n">PrintOptions</span><span class="p">),</span>
 <span class="g g-Whitespace">    </span><span class="mi">127</span>     <span class="n">MARGINS_TAG</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;page_margins&#39;</span><span class="p">,</span> <span class="n">PageMargins</span><span class="p">),</span>
@@ -523,33 +532,45 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="g g-Whitespace">    </span><span class="mi">145</span>     <span class="n">tag_name</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">tag</span>
 <span class="g g-Whitespace">    </span><span class="mi">146</span>     <span class="k">if</span> <span class="n">tag_name</span> <span class="ow">in</span> <span class="n">dispatcher</span><span class="p">:</span>
 
-<span class="nn">File ~\miniconda3\envs\venv\lib\xml\etree\ElementTree.py:1229,</span> in <span class="ni">iterparse.&lt;locals&gt;.iterator</span><span class="nt">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1227</span> <span class="k">yield from</span> <span class="n">pullparser</span><span class="o">.</span><span class="n">read_events</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1228</span> <span class="c1"># load event buffer</span>
-<span class="ne">-&gt; </span><span class="mi">1229</span> <span class="n">data</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">16</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1230</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1231</span>     <span class="k">break</span>
+<span class="nn">File ~/miniconda3/lib/python3.8/xml/etree/ElementTree.py:1232,</span> in <span class="ni">iterparse.&lt;locals&gt;.iterator</span><span class="nt">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1230</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1231</span>         <span class="k">break</span>
+<span class="ne">-&gt; </span><span class="mi">1232</span>     <span class="n">pullparser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1233</span> <span class="n">root</span> <span class="o">=</span> <span class="n">pullparser</span><span class="o">.</span><span class="n">_close_and_return_root</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1234</span> <span class="k">yield from</span> <span class="n">pullparser</span><span class="o">.</span><span class="n">read_events</span><span class="p">()</span>
 
-<span class="nn">File ~\miniconda3\envs\venv\lib\zipfile.py:940,</span> in <span class="ni">ZipExtFile.read</span><span class="nt">(self, n)</span>
-<span class="g g-Whitespace">    </span><span class="mi">938</span> <span class="bp">self</span><span class="o">.</span><span class="n">_offset</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="g g-Whitespace">    </span><span class="mi">939</span> <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eof</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">940</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read1</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">941</span>     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">942</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_readbuffer</span> <span class="o">=</span> <span class="n">data</span>
+<span class="nn">File ~/miniconda3/lib/python3.8/xml/etree/ElementTree.py:1274,</span> in <span class="ni">XMLPullParser.feed</span><span class="nt">(self, data)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1272</span> <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1273</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1274</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1275</span>     <span class="k">except</span> <span class="ne">SyntaxError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1276</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_events_queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
 
-<span class="nn">File ~\miniconda3\envs\venv\lib\zipfile.py:1030,</span> in <span class="ni">ZipExtFile._read1</span><span class="nt">(self, n)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1028</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_left</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1029</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_eof</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="ne">-&gt; </span><span class="mi">1030</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update_crc</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1031</span> <span class="k">return</span> <span class="n">data</span>
+<span class="nn">File ~/miniconda3/lib/python3.8/xml/etree/ElementTree.py:1693,</span> in <span class="ni">XMLParser.feed</span><span class="nt">(self, data)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1691</span> <span class="sd">&quot;&quot;&quot;Feed encoded data to parser.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1692</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1693</span>     <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1694</span> <span class="k">except</span> <span class="bp">self</span><span class="o">.</span><span class="n">_error</span> <span class="k">as</span> <span class="n">v</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1695</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_raiseerror</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 
-<span class="nn">File ~\miniconda3\envs\venv\lib\zipfile.py:955,</span> in <span class="ni">ZipExtFile._update_crc</span><span class="nt">(self, newdata)</span>
-<span class="g g-Whitespace">    </span><span class="mi">952</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_expected_crc</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">953</span>     <span class="c1"># No need to compute the CRC if we don&#39;t have a reference value</span>
-<span class="g g-Whitespace">    </span><span class="mi">954</span>     <span class="k">return</span>
-<span class="ne">--&gt; </span><span class="mi">955</span> <span class="bp">self</span><span class="o">.</span><span class="n">_running_crc</span> <span class="o">=</span> <span class="n">crc32</span><span class="p">(</span><span class="n">newdata</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_running_crc</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">956</span> <span class="c1"># Check the CRC if we&#39;re at the end of the file</span>
-<span class="g g-Whitespace">    </span><span class="mi">957</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eof</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_running_crc</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_expected_crc</span><span class="p">:</span>
+<span class="nn">File /tmp/build/80754af9/python-split_1634043551344/work/Modules/pyexpat.c:461,</span> in <span class="ni">EndElement</span><span class="nt">()</span>
+
+<span class="nn">File ~/miniconda3/lib/python3.8/xml/etree/ElementTree.py:1564,</span> in <span class="ni">XMLParser._setevents.&lt;locals&gt;.handler</span><span class="nt">(tag, event, append, end)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1562</span> <span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="n">event_name</span><span class="p">,</span> <span class="n">append</span><span class="o">=</span><span class="n">append</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1563</span>             <span class="n">end</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_end</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1564</span>     <span class="n">append</span><span class="p">((</span><span class="n">event</span><span class="p">,</span> <span class="n">end</span><span class="p">(</span><span class="n">tag</span><span class="p">)))</span>
+
+<span class="nn">File ~/miniconda3/lib/python3.8/xml/etree/ElementTree.py:1634,</span> in <span class="ni">XMLParser._end</span><span class="nt">(self, tag)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1633</span> <span class="k">def</span> <span class="nf">_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1634</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_fixname</span><span class="p">(</span><span class="n">tag</span><span class="p">))</span>
+
+<span class="nn">File ~/miniconda3/lib/python3.8/xml/etree/ElementTree.py:1607,</span> in <span class="ni">XMLParser._fixname</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1604</span> <span class="k">def</span> <span class="nf">_fixname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1605</span>     <span class="c1"># expand qname, and convert name string to ascii, if possible</span>
+<span class="g g-Whitespace">   </span><span class="mi">1606</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1607</span>         <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1608</span>     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1609</span>         <span class="n">name</span> <span class="o">=</span> <span class="n">key</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -561,29 +582,29 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># change column name and insert into database</span>
 <span class="n">column_m_dict</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;지역&#39;</span><span class="p">:</span> <span class="s1">&#39;district&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;측정소코드&#39;</span><span class="p">:</span> <span class="s1">&#39;measurecode&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;측정소명&#39;</span><span class="p">:</span> <span class="s1">&#39;measurename&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;측정일시&#39;</span><span class="p">:</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;측정소코드&#39;</span><span class="p">:</span> <span class="s1">&#39;measure_code&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;측정소명&#39;</span><span class="p">:</span> <span class="s1">&#39;measure_name&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;측정일시&#39;</span><span class="p">:</span> <span class="s1">&#39;datetime&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;주소&#39;</span><span class="p">:</span> <span class="s1">&#39;address&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;망&#39;</span><span class="p">:</span> <span class="s1">&#39;measurepoint&#39;</span>
+    <span class="s1">&#39;망&#39;</span><span class="p">:</span> <span class="s1">&#39;measure_point&#39;</span>
 <span class="p">}</span>
 
 <span class="n">check_miss_match</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">((</span><span class="n">data_path</span> <span class="o">/</span> <span class="s1">&#39;airquality&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.csv&quot;</span><span class="p">)):</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">column_m_dict</span><span class="p">)</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">,</span> <span class="s1">&#39;measurepoint&#39;</span><span class="p">,</span> <span class="s1">&#39;measurecode&#39;</span><span class="p">,</span> <span class="s1">&#39;measurename&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">,</span> <span class="s1">&#39;measure_point&#39;</span><span class="p">,</span> <span class="s1">&#39;measure_code&#39;</span><span class="p">,</span> <span class="s1">&#39;measure_name&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
     <span class="n">check_miss_match</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;\.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])]</span> <span class="o">=</span> <span class="n">c</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, num-unique data: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="si">}</span><span class="s2">, measurecode: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;measurecode&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="si">}</span><span class="s2">, district: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="si">}</span><span class="s2">, address: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: num-unique data: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="si">}</span><span class="s2">, measure_code: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;measure_code&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="si">}</span><span class="s2">, district: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="si">}</span><span class="s2">, address: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="c1"># saved changed columns</span>
     <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>air-seoul-2018.csv, num-unique data: 80, measurecode: 40,         district: 48, address: 48
-air-seoul-2019.csv, num-unique data: 40, measurecode: 40,         district: 25, address: 25
-air-seoul-2020.csv, num-unique data: 40, measurecode: 40,         district: 25, address: 25
-air-seoul-2021.csv, num-unique data: 40, measurecode: 40,         district: 25, address: 25
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>air-seoul-2018.csv: num-unique data: 80, measure_code: 40, district: 48, address: 48
+air-seoul-2019.csv: num-unique data: 40, measure_code: 40, district: 25, address: 25
+air-seoul-2020.csv: num-unique data: 40, measure_code: 40, district: 25, address: 25
+air-seoul-2021.csv: num-unique data: 40, measure_code: 40, district: 25, address: 25
 </pre></div>
 </div>
 </div>
@@ -591,33 +612,15 @@ air-seoul-2021.csv, num-unique data: 40, measurecode: 40,         district: 25, 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fix the district name and address by 2021 version of measurecode</span>
-<span class="n">code2dist</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">check_miss_match</span><span class="p">[</span><span class="mi">2021</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;measurecode&#39;</span><span class="p">,</span> <span class="s1">&#39;district&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-<span class="n">code2add</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">check_miss_match</span><span class="p">[</span><span class="mi">2021</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;measurecode&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">code2dist</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">check_miss_match</span><span class="p">[</span><span class="mi">2021</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;measure_code&#39;</span><span class="p">,</span> <span class="s1">&#39;district&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">code2add</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">check_miss_match</span><span class="p">[</span><span class="mi">2021</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;measure_code&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span> <span class="o">/</span> <span class="s1">&#39;airquality&#39;</span> <span class="o">/</span> <span class="s1">&#39;air-seoul-2018.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">column_m_dict</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;measurecode&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">code2dist</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;address&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;measurecode&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">code2add</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;measurecode&#39;</span><span class="p">,</span> <span class="s1">&#39;district&#39;</span><span class="p">,</span> <span class="s1">&#39;measurename&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">,</span> <span class="s1">&#39;measurepoint&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;measurecode&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;district&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;measure_code&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">code2dist</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;address&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;measure_code&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">code2add</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;measure_code&#39;</span><span class="p">,</span> <span class="s1">&#39;district&#39;</span><span class="p">,</span> <span class="s1">&#39;measure_name&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">,</span> <span class="s1">&#39;measure_point&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;measure_code&#39;</span><span class="p">,</span> <span class="s1">&#39;datetime&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
 <span class="c1"># save </span>
-<span class="c1"># df.to_csv(data_path / &#39;airquality&#39; / &#39;air-seoul-2018.csv&#39;, encoding=&#39;utf-8&#39;, index=False)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">drop_tables</span><span class="p">(</span><span class="n">conn</span><span class="p">):</span>
-    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;DROP TABLE IF EXISTS airquality;&quot;</span><span class="p">)</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;DROP TABLE IF EXISTS airmeasure;&quot;</span><span class="p">)</span>
-    <span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">drop_tables</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">data_path</span> <span class="o">/</span> <span class="s1">&#39;airquality&#39;</span> <span class="o">/</span> <span class="s1">&#39;air-seoul-2018.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -629,11 +632,11 @@ air-seoul-2021.csv, num-unique data: 40, measurecode: 40,         district: 25, 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    CREATE TABLE IF NOT EXISTS airmeasure (</span>
 <span class="sd">        sid INTEGER PRIMARY KEY,</span>
-<span class="sd">        measurecode INTEGER NOT NULL UNIQUE,</span>
+<span class="sd">        measure_code INTEGER NOT NULL UNIQUE,</span>
 <span class="sd">        district TEXT, </span>
-<span class="sd">        measurename TEXT, </span>
+<span class="sd">        measure_name TEXT, </span>
 <span class="sd">        address TEXT, </span>
-<span class="sd">        measurepoint TEXT</span>
+<span class="sd">        measure_point TEXT</span>
 <span class="sd">    );</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 <span class="p">)</span>
@@ -641,38 +644,38 @@ air-seoul-2021.csv, num-unique data: 40, measurecode: 40,         district: 25, 
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    CREATE TABLE IF NOT EXISTS airquality (</span>
 <span class="sd">        airid INTEGER PRIMARY KEY,</span>
-<span class="sd">        measurecode INTEGER, </span>
-<span class="sd">        date TEXT, </span>
+<span class="sd">        measure_code INTEGER, </span>
+<span class="sd">        datetime TEXT, </span>
 <span class="sd">        SO2 REAL, </span>
 <span class="sd">        CO REAL, </span>
 <span class="sd">        O3 REAL,</span>
 <span class="sd">        NO2 REAL, </span>
 <span class="sd">        PM10 REAL, </span>
 <span class="sd">        PM25 REAL, </span>
-<span class="sd">        FOREIGN KEY (measurecode)</span>
-<span class="sd">            REFERENCES airmeasure (measurecode)</span>
+<span class="sd">        FOREIGN KEY (measure_code)</span>
+<span class="sd">            REFERENCES airmeasure (measure_code)</span>
 <span class="sd">            ON DELETE CASCADE </span>
 <span class="sd">            ON UPDATE NO ACTION</span>
 <span class="sd">    );</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 <span class="p">)</span>
 
-<span class="n">airmeasure_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;measurecode&#39;</span><span class="p">,</span> <span class="s1">&#39;district&#39;</span><span class="p">,</span> <span class="s1">&#39;measurename&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">,</span> <span class="s1">&#39;measurepoint&#39;</span><span class="p">]</span>
-<span class="n">airquality_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;measurecode&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;SO2&#39;</span><span class="p">,</span> <span class="s1">&#39;CO&#39;</span><span class="p">,</span> <span class="s1">&#39;O3&#39;</span><span class="p">,</span> <span class="s1">&#39;NO2&#39;</span><span class="p">,</span> <span class="s1">&#39;PM10&#39;</span><span class="p">,</span> <span class="s1">&#39;PM25&#39;</span><span class="p">]</span>
+<span class="n">airmeasure_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;measure_code&#39;</span><span class="p">,</span> <span class="s1">&#39;district&#39;</span><span class="p">,</span> <span class="s1">&#39;measure_name&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">,</span> <span class="s1">&#39;measure_point&#39;</span><span class="p">]</span>
+<span class="n">airquality_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;measure_code&#39;</span><span class="p">,</span> <span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="s1">&#39;SO2&#39;</span><span class="p">,</span> <span class="s1">&#39;CO&#39;</span><span class="p">,</span> <span class="s1">&#39;O3&#39;</span><span class="p">,</span> <span class="s1">&#39;NO2&#39;</span><span class="p">,</span> <span class="s1">&#39;PM10&#39;</span><span class="p">,</span> <span class="s1">&#39;PM25&#39;</span><span class="p">]</span>
 <span class="n">df_airmeasure</span> <span class="o">=</span> <span class="kc">None</span>
 
 <span class="n">sql_airmeasure</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">INSERT INTO airmeasure (sid, measurecode, district, measurename, address, measurepoint)</span>
+<span class="s2">INSERT INTO airmeasure (sid, measure_code, district, measure_name, address, measure_point)</span>
 <span class="s2">VALUES (?, ?, ?, ?, ?, ?);</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">sql_airquality</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">INSERT INTO airquality (airid, measurecode, date, SO2, CO, O3, NO2, PM10, PM25) </span>
+<span class="s2">INSERT INTO airquality (airid, measure_code, datetime, SO2, CO, O3, NO2, PM10, PM25) </span>
 <span class="s2">VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">sorted</span><span class="p">((</span><span class="n">data_path</span> <span class="o">/</span> <span class="s1">&#39;airquality&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.csv&quot;</span><span class="p">)),</span> <span class="n">total</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;measurecode&#39;</span><span class="p">,</span> <span class="s1">&#39;district&#39;</span><span class="p">,</span> <span class="s1">&#39;measurename&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">,</span> <span class="s1">&#39;measurepoint&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;measurecode&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;measure_code&#39;</span><span class="p">,</span> <span class="s1">&#39;district&#39;</span><span class="p">,</span> <span class="s1">&#39;measure_name&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">,</span> <span class="s1">&#39;measure_point&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;measure_code&#39;</span><span class="p">,</span> <span class="s1">&#39;datetime&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
     <span class="k">if</span> <span class="n">df_airmeasure</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">df_airmeasure</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">airmeasure_columns</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -683,21 +686,23 @@ air-seoul-2021.csv, num-unique data: 40, measurecode: 40,         district: 25, 
         <span class="n">df_temp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">airmeasure_columns</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">df_temp</span> <span class="o">!=</span> <span class="n">df_airmeasure</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">():</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;not equal table&quot;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">df_airmeasure</span><span class="p">[</span><span class="s1">&#39;measurecode&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
-        <span class="n">df_airquality</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;measurecode&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">m</span><span class="p">,</span> <span class="n">airquality_columns</span><span class="p">]</span>
-        <span class="n">df_airquality</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_airquality</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">%H&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">df_airmeasure</span><span class="p">[</span><span class="s1">&#39;measure_code&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+        <span class="n">df_airquality</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;measure_code&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">m</span><span class="p">,</span> <span class="n">airquality_columns</span><span class="p">]</span>
+        <span class="n">df_airquality</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_airquality</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">%H&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
         
         <span class="c1"># insert row</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df_airquality</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
             <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
             <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql_airquality</span><span class="p">,</span> <span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">airquality_columns</span><span class="p">])</span>
+
 <span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "87880a093fe44c9dbb2995abcc24f550", "version_major": 2, "version_minor": 0}
+{"model_id": "bdeb06318a534d84bb1fb662a2816fd2", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 </div>
@@ -755,17 +760,44 @@ air-seoul-2021.csv, num-unique data: 40, measurecode: 40,         district: 25, 
     <span class="n">all_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">columns</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
     
 <span class="n">df_holiday</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">all_data</span><span class="p">)</span>
+
+<span class="n">df_holiday</span> <span class="o">=</span> <span class="n">df_holiday</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_holiday</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">data_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;holiday_</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">start</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">end</span><span class="si">}</span><span class="s2">.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_holiday</span> <span class="o">=</span> <span class="n">df_holiday</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df_holiday</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">data_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;holiday_</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">start</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">end</span><span class="si">}</span><span class="s2">.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">CREATE TABLE IF NOT EXISTS holiday (</span>
+<span class="sd">    hid INTEGER PRIMARY KEY,</span>
+<span class="sd">    date TEXT,</span>
+<span class="sd">    day TEXT, </span>
+<span class="sd">    name TEXT, </span>
+<span class="sd">    type TEXT</span>
+<span class="sd">);</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="p">)</span>
+<span class="n">sql_holiday</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">INSERT INTO holiday (hid, date, day, name, type)</span>
+<span class="s2">VALUES (?, ?, ?, ?, ?);</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">holiday_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">df_holiday</span><span class="o">.</span><span class="n">iterrows</span><span class="p">(),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df_holiday</span><span class="p">)):</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql_holiday</span><span class="p">,</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">holiday_columns</span><span class="p">])</span>
+
+<span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "c10bf6977a39438baa10af0dd96cf28f", "version_major": 2, "version_minor": 0}
+</script></div>
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="weather-data">
@@ -792,52 +824,40 @@ air-seoul-2021.csv, num-unique data: 40, measurecode: 40,         district: 25, 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;지점&#39;</span><span class="p">:</span> <span class="s1">&#39;measurecode&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;지점명&#39;</span><span class="p">:</span> <span class="s1">&#39;measurename&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;일시&#39;</span><span class="p">:</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;기온(°C)&#39;</span><span class="p">:</span> <span class="s1">&#39;temperature&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;강수량(mm)&#39;</span><span class="p">:</span> <span class="s1">&#39;precipitation&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;풍속(m/s)&#39;</span><span class="p">:</span> <span class="s1">&#39;windspeed&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;풍향(16방위)&#39;</span><span class="p">:</span> <span class="s1">&#39;winddirection&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;습도(%)&#39;</span><span class="p">:</span> <span class="s1">&#39;humidity&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;현지기압(hPa)&#39;</span><span class="p">:</span> <span class="s1">&#39;spotatmosphericpressure&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;지면온도(°C)&#39;</span><span class="p">:</span> <span class="s1">&#39;groundtemperature&#39;</span>
-<span class="p">}</span>
-<span class="p">{</span>
     <span class="s1">&#39;지점&#39;</span><span class="p">:</span> <span class="s1">&#39;measure_code&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;지점명&#39;</span><span class="p">:</span> <span class="s1">&#39;measure_name&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;일시&#39;</span><span class="p">:</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;일시&#39;</span><span class="p">:</span> <span class="s1">&#39;datetime&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;기온(°C)&#39;</span><span class="p">:</span> <span class="s1">&#39;temperature&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;기온 QC플래그&#39;</span><span class="p">:</span> <span class="s1">&#39;temperature-flag&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;기온 QC플래그&#39;</span><span class="p">:</span> <span class="s1">&#39;temperature_flag&#39;</span><span class="p">,</span>
     <span class="s1">&#39;강수량(mm)&#39;</span><span class="p">:</span> <span class="s1">&#39;precipitation&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;강수량 QC플래그&#39;</span><span class="p">:</span> <span class="s1">&#39;precipitation-flag&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;강수량 QC플래그&#39;</span><span class="p">:</span> <span class="s1">&#39;precipitation_flag&#39;</span><span class="p">,</span>
     <span class="s1">&#39;풍속(m/s)&#39;</span><span class="p">:</span> <span class="s1">&#39;wind_speed&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;풍속 QC플래그&#39;</span><span class="p">:</span> <span class="s1">&#39;wind_speed-flag&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;풍속 QC플래그&#39;</span><span class="p">:</span> <span class="s1">&#39;wind_speed_flag&#39;</span><span class="p">,</span>
     <span class="s1">&#39;풍향(16방위)&#39;</span><span class="p">:</span> <span class="s1">&#39;wind_direction&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;풍향 QC플래그&#39;</span><span class="p">:</span> <span class="s1">&#39;wind_direction-flag&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;풍향 QC플래그&#39;</span><span class="p">:</span> <span class="s1">&#39;wind_direction_flag&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;습도(%)&#39;</span><span class="p">:</span> <span class="s1">&#39;humidity&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;습도 QC플래그&#39;</span><span class="p">:</span> <span class="s1">&#39;humidity-flag&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;습도 QC플래그&#39;</span><span class="p">:</span> <span class="s1">&#39;humidity_flag&#39;</span><span class="p">,</span>
     <span class="s1">&#39;증기압(hPa)&#39;</span><span class="p">:</span> <span class="s1">&#39;vapor_pressure&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;이슬점온도(°C)&#39;</span><span class="p">:</span> <span class="s1">&#39;dew_point_temperature&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;현지기압(hPa)&#39;</span><span class="p">:</span> <span class="s1">&#39;local_pressure&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;현지기압 QC플래그&#39;</span><span class="p">:</span> <span class="s1">&#39;local_pressure-flag&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;해면기압(hPa)&#39;</span><span class="p">:</span> <span class="s1">&#39;sea_​​level_pressure&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;해면기압 QC플래그&#39;</span><span class="p">:</span> <span class="s1">&#39;sea_​​level_pressure-flag&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;현지기압 QC플래그&#39;</span><span class="p">:</span> <span class="s1">&#39;local_pressure_flag&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;해면기압(hPa)&#39;</span><span class="p">:</span> <span class="s1">&#39;sea_level_pressure&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;해면기압 QC플래그&#39;</span><span class="p">:</span> <span class="s1">&#39;sea_level_pressure_flag&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;일조(hr)&#39;</span><span class="p">:</span> <span class="s1">&#39;sunshine&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;일조 QC플래그&#39;</span><span class="p">:</span> <span class="s1">&#39;sunshine-flag&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;일조 QC플래그&#39;</span><span class="p">:</span> <span class="s1">&#39;sunshine_flag&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;일사(MJ/m2)&#39;</span><span class="p">:</span> <span class="s1">&#39;solar_radiation&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;일사 QC플래그&#39;</span><span class="p">:</span> <span class="s1">&#39;solar_radiation-flag&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;일사 QC플래그&#39;</span><span class="p">:</span> <span class="s1">&#39;solar_radiation_flag&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;적설(cm)&#39;</span><span class="p">:</span> <span class="s1">&#39;snow&#39;</span><span class="p">,</span>
     <span class="s1">&#39;3시간신적설(cm)&#39;</span><span class="p">:</span> <span class="s1">&#39;snow_3hour&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;전운량(10분위)&#39;</span><span class="p">:</span> <span class="s1">&#39;cloud&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;중하층운량(10분위)&#39;</span><span class="p">:</span> <span class="s1">&#39;mid_level_cloud&#39;</span><span class="p">,</span>
     <span class="s1">&#39;운형(운형약어)&#39;</span><span class="p">:</span> <span class="s1">&#39;cloud_type&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;최저운고(100m )&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;최저운고(100m )&#39;</span><span class="p">:</span> <span class="s1">&#39;lowest_cloud&#39;</span><span class="p">,</span>
     <span class="s1">&#39;시정(10m)&#39;</span><span class="p">:</span> <span class="s1">&#39;visibility&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;지면상태(지면상태코드)&#39;</span><span class="p">:</span> <span class="s1">&#39;ground_status_code&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;현상번호(국내식)&#39;</span><span class="p">:</span> <span class="s1">&#39;weather_status_code&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;지면온도(°C)&#39;</span><span class="p">:</span> <span class="s1">&#39;ground_temperature&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;지면온도 QC플래그&#39;</span><span class="p">:</span> <span class="s1">&#39;ground_temperature-flag&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;지면온도 QC플래그&#39;</span><span class="p">:</span> <span class="s1">&#39;ground_temperature_flag&#39;</span><span class="p">,</span>
     <span class="s1">&#39;5cm 지중온도(°C)&#39;</span><span class="p">:</span> <span class="s1">&#39;5cm_soil_temperature&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;10cm 지중온도(°C)&#39;</span><span class="p">:</span> <span class="s1">&#39;10cm_soil_temperature&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;20cm 지중온도(°C)&#39;</span><span class="p">:</span> <span class="s1">&#39;20cm_soil_temperature&#39;</span><span class="p">,</span> 
@@ -847,198 +867,122 @@ air-seoul-2021.csv, num-unique data: 40, measurecode: 40,         district: 25, 
 <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">2019</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">2021</span><span class="p">]:</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span> <span class="o">/</span> <span class="s2">&quot;weather&quot;</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">년.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;euc-kr&quot;</span><span class="p">)</span>
-    <span class="c1"># df = df.rename(columns=columns).iloc[:, 2:]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
     <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_weather</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;시정(10m)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">CREATE TABLE IF NOT EXISTS weather (</span>
+<span class="sd">    wid INTEGER PRIMARY KEY,</span>
+<span class="sd">    measure_code INTEGER,</span>
+<span class="sd">    measure_name TEXT,</span>
+<span class="sd">    datetime TEXT,</span>
+<span class="sd">    temperature REAL,</span>
+<span class="sd">    temperature_flag REAL,</span>
+<span class="sd">    precipitation REAL,</span>
+<span class="sd">    precipitation_flag REAL,</span>
+<span class="sd">    wind_speed REAL,</span>
+<span class="sd">    wind_speed_flag REAL,</span>
+<span class="sd">    wind_direction REAL,</span>
+<span class="sd">    wind_direction_flag REAL,</span>
+<span class="sd">    humidity REAL,</span>
+<span class="sd">    humidity_flag REAL,</span>
+<span class="sd">    vapor_pressure REAL,</span>
+<span class="sd">    dew_point_temperature REAL,</span>
+<span class="sd">    local_pressure REAL,</span>
+<span class="sd">    local_pressure_flag REAL,</span>
+<span class="sd">    sea_level_pressure REAL,</span>
+<span class="sd">    sea_level_pressure_flag REAL,</span>
+<span class="sd">    sunshine REAL,</span>
+<span class="sd">    sunshine_flag REAL,</span>
+<span class="sd">    solar_radiation REAL,</span>
+<span class="sd">    solar_radiation_flag REAL,</span>
+<span class="sd">    snow REAL,</span>
+<span class="sd">    snow_3hour REAL,</span>
+<span class="sd">    cloud REAL,</span>
+<span class="sd">    mid_level_cloud REAL,</span>
+<span class="sd">    cloud_type TEXT,</span>
+<span class="sd">    lowest_cloud REAL,</span>
+<span class="sd">    visibility INTEGER,</span>
+<span class="sd">    ground_status_code REAL,</span>
+<span class="sd">    weather_status_code REAL,</span>
+<span class="sd">    ground_temperature REAL,</span>
+<span class="sd">    ground_temperature_flag REAL,</span>
+<span class="sd">    &#39;5cm_soil_temperature&#39; REAL,</span>
+<span class="sd">    &#39;10cm_soil_temperature&#39; REAL,</span>
+<span class="sd">    &#39;20cm_soil_temperature&#39; REAL,</span>
+<span class="sd">    &#39;30cm_soil_temperature&#39; REAL</span>
+<span class="sd">);</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="p">)</span>
+
+<span class="n">weather_columns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;measure_code&#39;</span><span class="p">,</span> <span class="s1">&#39;measure_name&#39;</span><span class="p">,</span> <span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="s1">&#39;temperature&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;temperature_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;precipitation&#39;</span><span class="p">,</span> <span class="s1">&#39;precipitation_flag&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;wind_speed&#39;</span><span class="p">,</span> <span class="s1">&#39;wind_speed_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;wind_direction&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;wind_direction_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;humidity&#39;</span><span class="p">,</span> <span class="s1">&#39;humidity_flag&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;vapor_pressure&#39;</span><span class="p">,</span> <span class="s1">&#39;dew_point_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;local_pressure&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;local_pressure_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;sea_level_pressure&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sea_level_pressure_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;sunshine&#39;</span><span class="p">,</span> <span class="s1">&#39;sunshine_flag&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;solar_radiation&#39;</span><span class="p">,</span> <span class="s1">&#39;solar_radiation_flag&#39;</span><span class="p">,</span> <span class="s1">&#39;snow&#39;</span><span class="p">,</span> <span class="s1">&#39;snow_3hour&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;cloud&#39;</span><span class="p">,</span> <span class="s1">&#39;mid_level_cloud&#39;</span><span class="p">,</span> <span class="s1">&#39;cloud_type&#39;</span><span class="p">,</span> <span class="s1">&#39;lowest_cloud&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;visibility&#39;</span><span class="p">,</span> <span class="s1">&#39;ground_status_code&#39;</span><span class="p">,</span> <span class="s1">&#39;weather_status_code&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ground_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;ground_temperature_flag&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;5cm_soil_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;10cm_soil_temperature&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;20cm_soil_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;30cm_soil_temperature&#39;</span>
+<span class="p">]</span>
+<span class="n">sql_weather</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">INSERT INTO weather (&#39;wid&#39;, </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&#39;&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">weather_columns</span><span class="p">])</span><span class="si">}</span><span class="s2">)</span>
+<span class="s2">VALUES (?</span><span class="si">{</span><span class="s1">&#39;, ?&#39;</span><span class="o">*</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">weather_columns</span><span class="p">))</span><span class="si">}</span><span class="s2"> );</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">df_weather</span><span class="o">.</span><span class="n">iterrows</span><span class="p">(),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df_weather</span><span class="p">)):</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql_weather</span><span class="p">,</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">weather_columns</span><span class="p">])</span>
+
+<span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1924
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "22444d258c1e4075b9dc552000cdf23c", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT * FROM sqlite_master WHERE type=&#39;table&#39;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>지점</th>
-      <th>지점명</th>
-      <th>일시</th>
-      <th>기온(°C)</th>
-      <th>기온 QC플래그</th>
-      <th>강수량(mm)</th>
-      <th>강수량 QC플래그</th>
-      <th>풍속(m/s)</th>
-      <th>풍속 QC플래그</th>
-      <th>풍향(16방위)</th>
-      <th>...</th>
-      <th>최저운고(100m )</th>
-      <th>시정(10m)</th>
-      <th>지면상태(지면상태코드)</th>
-      <th>현상번호(국내식)</th>
-      <th>지면온도(°C)</th>
-      <th>지면온도 QC플래그</th>
-      <th>5cm 지중온도(°C)</th>
-      <th>10cm 지중온도(°C)</th>
-      <th>20cm 지중온도(°C)</th>
-      <th>30cm 지중온도(°C)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>108</td>
-      <td>서울</td>
-      <td>2018-01-01 00:00</td>
-      <td>-3.2</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>9.0</td>
-      <td>0.5</td>
-      <td>NaN</td>
-      <td>110.0</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>1358</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-2.2</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.3</td>
-      <td>1.0</td>
-      <td>1.5</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>108</td>
-      <td>서울</td>
-      <td>2018-01-01 01:00</td>
-      <td>-3.3</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.7</td>
-      <td>0.0</td>
-      <td>360.0</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>2000</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-2.7</td>
-      <td>0.0</td>
-      <td>-0.1</td>
-      <td>0.3</td>
-      <td>0.9</td>
-      <td>1.5</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>108</td>
-      <td>서울</td>
-      <td>2018-01-01 02:00</td>
-      <td>-3.7</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.9</td>
-      <td>0.0</td>
-      <td>270.0</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>2000</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-3.0</td>
-      <td>0.0</td>
-      <td>-0.2</td>
-      <td>0.3</td>
-      <td>0.9</td>
-      <td>1.6</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>108</td>
-      <td>서울</td>
-      <td>2018-01-01 03:00</td>
-      <td>-4.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>290.0</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>2000</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-3.5</td>
-      <td>0.0</td>
-      <td>-0.2</td>
-      <td>0.3</td>
-      <td>1.0</td>
-      <td>1.5</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>108</td>
-      <td>서울</td>
-      <td>2018-01-01 04:00</td>
-      <td>-4.2</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.1</td>
-      <td>0.0</td>
-      <td>290.0</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>1994</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-3.8</td>
-      <td>0.0</td>
-      <td>-0.3</td>
-      <td>0.3</td>
-      <td>0.9</td>
-      <td>1.6</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 38 columns</p>
-</div></div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>airmeasure
+airquality
+holiday
+weather
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -1066,7 +1010,21 @@ air-seoul-2021.csv, num-unique data: 40, measurecode: 40,         district: 25, 
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Handbook For Data Science: Airpollution Project</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="01_data-eda.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exploratory Data Analysis</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>
@@ -1074,9 +1032,9 @@ air-seoul-2021.csv, num-unique data: 40, measurecode: 40,         district: 25, 
     <footer class="footer">
   <p>
     
-      으로 The Jupyter Book Community<br/>
+      By The Jupyter Book Community<br/>
     
-        &copy; 저작권 2021.<br/>
+        &copy; Copyright 2021.<br/>
   </p>
 </footer>
 </main>
